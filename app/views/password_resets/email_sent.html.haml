@@ -1,5 +1,3 @@
--#TODO need to dry up registration header. Used in sessions#new, users#new, and registrations#new.
-
 #page
   %header#header.site-header
     = render "landing_pages/header"
@@ -12,11 +10,3 @@
             We've sent you an email with password reset instructions to:
             %span{class: "blue"}
               = @user.email
-
-
-
-
-
-
-
-

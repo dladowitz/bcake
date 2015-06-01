@@ -4,13 +4,6 @@ class UserMailer < ApplicationMailer
   # TODO need to change this to work in production
   RESET_LINK_BASE = "http://localhost:3000/reset_password/"
 
-  def registration_email(registration)
-    @registration = registration
-    attachments.inline['logo.png'] = File.read('app/assets/images/cake-logo.png')
-
-    mail(to: @registration.email, subject: "Cake - Registration")
-  end
-
   def signup_email(user)
     @user = user
     attachments.inline['logo.png'] = File.read('app/assets/images/cake-logo.png')
