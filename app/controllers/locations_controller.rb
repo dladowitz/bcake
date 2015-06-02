@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
   def index
-    @locations = []
+    @locations = Location.all
   end
 end
