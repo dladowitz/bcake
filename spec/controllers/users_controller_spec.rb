@@ -15,7 +15,6 @@ describe UsersController do
   end
 
   describe "POST create" do
-
     context "with valid params" do
       subject { post :create, user: {first_name: "Andre", email: "Andre.Ampere@gmail.com", password: "asdfasdf", password_confirmation: "asdfasdf" } }
 
