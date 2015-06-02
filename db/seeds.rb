@@ -3,5 +3,12 @@
 #
 # Examples:
 #
+    users = User.create [{first_name: "David", last_name: "Ladowitz", email: "david@ladowitz.com", admin: true, password: "asdfasdf"},
+                         {first_name: "Teresa", last_name: "Huang", email: "teresa@gmail.com", admin: true, password: "asdfasdf"}
+                        ]
+
+    locations = Location.create [{name: "Jackson Place Cafe", img_url: "http://www.fillmurray.com/500/300"},
+                                 {name: "YoYo's", img_url: "http://www.fillmurray.com/500/300"}
+                                ]
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)

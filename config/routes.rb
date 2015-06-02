@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   # resource routes
   resources :users
-  resources :locations, only: [:index]
+  resources :locations, only: [:index, :show]
   resources :sessions, only: [:new, :create, :destroy]
   resources :password_resets, only: [:create]
 

@@ -21,3 +21,13 @@
   min-height: 300px !important;
 }
 
+ul.locations {
+  padding-left: 0px;
+}
+
+li.location {
+  list-style-type: none;
+  a {
+    color: blue;
+  }
+}
