@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  # root
   root to: "landing_pages#landing"
 
+  # using root to for url shortener
+  get "/:id", to:"locations#show", as: :short_location
   # custom routes
   get    :landing,     to: "landing_pages#landing",      as: :landing
   get    :signin,      to: "sessions#new",               as: :signin

@@ -4,10 +4,7 @@ describe LocationsController do
   describe 'GET index' do
     subject { get :index }
 
-    before do
-      create :location
-      subject
-    end
+    before { subject }
 
     it 'returns the index template' do
       expect(response).to render_template :index
@@ -19,6 +16,15 @@ describe LocationsController do
 
     it 'has location objects in the list' do
       expect(assigns(:locations).first).to be_a Location
+    end
+  end
+
+  describe 'Get show' do
+    let { create: location, name: "tradecraft" }
+    subject { get :show, {id: location.id} }
+
+    it 'returns the show template' do
+      expect(response).to render_template :show
     end
   end
 end
