@@ -1,21 +1,20 @@
 class LocationsController < ApplicationController
+  layout "landing_page/landing_layout"
+
   def index
     @locations = Location.all
-    render layout: "landing_page/landing_layout"
   end
 
   def show
     @location  = Location.find params[:id]
-    @customer  = Customer.new
-    render layout: "landing_page/landing_layout"
   end
 
   def signup
     @location = Location.find params[:id]
 
     # if customer is already in db find them, otherwise create a new record
-    @customer  = Customer.find_or_create_by(email: params[:customer][:email]) do |customer|
-      customer.birthday = params[:customer][:birthday]
+    @customer  = Customer.find_or_create_by(email: params[:email]) do |customer|
+      customer.birthday = params[:birthday]
     end
 
     # add location to customer

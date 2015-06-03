@@ -1,10 +1,11 @@
 Given /Customer visits a location show page/ do
-  visit "/1"
+  location = Location.first
+  visit "/4"
 end
 
 And   /they fill out the email-birthday form/ do
-  fill_in "customer_email", with: "misha@tradecraft.com"
-  fill_in "customer_birthday", with: 35.years.ago
+  fill_in "email", with: "misha@tradecraft.com"
+  fill_in "birthday", with: 35.years.ago
   click_button "Sign Up"
 end
 

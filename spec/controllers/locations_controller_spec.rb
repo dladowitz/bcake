@@ -30,7 +30,7 @@ describe LocationsController do
 
   describe 'POST signup' do
     let (:location) { create :location, name: "tradecraft" }
-    subject { post :signup, {id: location.id, customer: {email: "janardin@tradecraft.com", birthday: "1981-07-04"}}}
+    subject { post :signup, {id: location.id, email: "janardin@tradecraft.com", birthday: "1981-07-04"}}
 
     it "adds a location to the customer" do
       subject

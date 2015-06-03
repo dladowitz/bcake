@@ -5,12 +5,14 @@ class ApplicationController < ActionController::Base
 
   rescue_from CanCan::AccessDenied do |exception|
     flash[:danger] = "You are not authorized for this page. All your bases are belong to us."
+    puts "---------- You are not authorized for this page. All your bases are belong to us. ----------"
     redirect_to user_path(current_user)
   end
 
   rescue_from ActiveRecord::RecordNotFound do |exception|
     flash[:danger] = "That's not a thing in the database"
-    redirect_to user_path(current_user)
+    puts "---------- That's not a thing in the database ----------"
+    redirect_to root_path
   end
 
   def current_user

@@ -15,12 +15,12 @@
                 %p wants to give you something free on your birthday
 
                 .signup-form
-                  = form_for @customer do |f|
-                    = f.label :email
-                    = f.email_field :email
-                    = f.label :birthday
-                    = f.date_field :birthday
-                    = f.submit "Sign Up", class: "btn btn-success"
+                  = form_tag signup_location_path do
+                    = label_tag :email
+                    = email_field_tag :email
+                    = label_tag :birthday
+                    = date_field_tag :birthday
+                    = submit_tag "Sign Up", class: "btn btn-success"
 
       %section.section.section-center.section-cta.pt10.pb20
         .container
