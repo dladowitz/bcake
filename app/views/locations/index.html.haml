@@ -1,26 +1,13 @@
-%body
-  #page
-    %header#header.site-header
-      = render "landing_pages/header"
+#page
+  %header#header.site-header
+    = render "landing_pages/header"
 
-
-    %main#main.site-main
-      %section#carousel-1.carousel.slide.section-slide{"data-ride" => "carousel"}
-        .carousel-inner
-          .item.active{:style => "background: url(https://farm7.staticflickr.com/6149/6041904680_5286493e4e_b.jpg); background-size: cover;"}
-            .container
-              .main_content.pt10.pb40.col-sm-8.col-sm-offset-2
-                %h1.section-title
-                  %span Locations
-                %ul.locations
-                  - @locations.each do |location|
-                    %li.location= link_to location.name, location_path(location.id)
-
-
-
-      %section.section.section-center.section-cta.pt10.pb20
-        .container
-
-
-    %footer#footer.site-footer.mt100
-      = render "landing_pages/footer"
+.container.img-layer.col-xs-12{:style => "background: url(https://farm8.staticflickr.com/7586/16179516094_bff809dcd7_c.jpg); background-size: cover;"}
+  .row
+    = link_to locations_path do
+      .main_content.col-xs-12.col-md-8.col-md-offset-2
+        %h1.section-title
+          %span Locations
+        %ul.locations
+          - @locations.each do |location|
+            %li.location= link_to location.name, location_path(location.id)

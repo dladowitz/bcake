@@ -1,32 +1,13 @@
-%body
-  #page
-    %header#header.site-header
-      = render "header"
+%header#header.site-header
+  = render "header"
 
-
-    %main#main.site-main
-      %section#carousel-1.carousel.slide.section-slide{"data-ride" => "carousel"}
-        .carousel-inner
-          .item.active{:style => "background: url(https://farm7.staticflickr.com/6149/6041904680_5286493e4e_b.jpg); background-size: cover;"}
-            .container
-              .main_content.pt10.pb40.col-sm-8.col-sm-offset-2
-                %h1.section-title
-                  %span Welcome to Cake
-                %h2
-                  Let's make your birthday better
-                .mt20
-                  %span.mr40.fa.fa-coffee.fa-5x
-                  %span.mr40.fa.fa-birthday-cake.fa-5x
-                  %span.fa.fa-spoon.fa-5x
-
-      %section.section.section-center.section-cta.pt10.pb20
-        .container
-
-
-    %footer#footer.site-footer.mt100
-      = render "footer"
-
-
-  -#.scroll-to-top{"data-offset-top" => "200", "data-spy" => "affix"}
-  -#  %a.smooth-scroll{:href => "#page"}
-  -#    %i.fa.fa-arrow-up
+.container.img-layer.col-xs-12{:style => "background: url(https://farm9.staticflickr.com/8439/8000334787_92911a641e_c.jpg); background-size: cover;"}
+  .row
+    = link_to locations_path do
+      .main_content.col-xs-12.col-md-8.col-md-offset-2
+        %h1.section-title Welcome to Cake
+        %h2 Let's make your birthday better
+        .mt20
+          %span.mr40.fa.fa-coffee.fa-5x
+          %span.mr40.fa.fa-birthday-cake.fa-5x
+          %span.fa.fa-spoon.fa-5x

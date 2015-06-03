@@ -14,11 +14,33 @@
 @import "font-awesome";
 
 //////// Styles limited to the landing page \\\\\\\\\\
+@media only screen
+  and (min-device-width: 100px)
+  and (max-device-width: 736px) {
+  .img-layer {
+    height: 2000px;
+  }
+
+}
+
+
 
 .main_content {
-  background-color: rgba(255,255,255,0.75);
+  background-color: rgba(225, 225, 225, .65);
   border-radius: 5px;
   min-height: 300px !important;
+  margin-top: 200px;
+  text-align: center;
+  padding: 40px;
+  color: #312212;
+
+  h1 {
+    font-size: 100px;
+  }
+
+  h2 {
+    font-size: 50px;
+  }
 }
 
 ul.locations {
@@ -27,7 +49,17 @@ ul.locations {
 
 li.location {
   list-style-type: none;
+  font-size: 33px;
   a {
     color: blue;
+  }
+}
+
+// For laptops
+@media screen
+  and (min-device-width: 737px)
+  and (max-device-width: 1600px) {
+  .img-layer {
+    height: 800px;
   }
 }
