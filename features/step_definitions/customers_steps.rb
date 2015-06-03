@@ -1,6 +1,6 @@
 Given /Customer visits a location show page/ do
   location = Location.first
-  visit "/4"
+  visit "/#{location.id}"
 end
 
 And   /they fill out the email-birthday form/ do
@@ -14,7 +14,7 @@ Then  /they are shown a confirmation screen/ do
 end
 
 And   /they can click on a new location/ do
-  exect(page).to have_content "Yo Yo's"
+  expect(page).to have_content "Yo Yo's"
   click_link "Yo Yo's"
 end
 

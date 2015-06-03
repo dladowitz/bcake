@@ -10,6 +10,8 @@ class LocationsController < ApplicationController
   end
 
   def signup
+    # TODO create a method to intelligently pull nearby locations
+    @locations = Location.all.limit 5
     @location = Location.find params[:id]
 
     # if customer is already in db find them, otherwise create a new record

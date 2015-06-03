@@ -1,3 +1,8 @@
 %h1
   %span Thanks for signing up with
   %span= @location.name
+
+.nearby-locations
+  %ul
+    - @locations.each do |location|
+      %li.location= link_to location.name, location_path(location) 

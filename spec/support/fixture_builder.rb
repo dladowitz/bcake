@@ -16,7 +16,8 @@ FixtureBuilder.configure do |fbuilder|
     # locations
     @jackson = create(:location, name: "Jackson Place Cafe", img_url: "http://www.fillmurray.com/500/300")
     @yoyos   = create(:location, name: "Yo Yo's",            img_url: "http://www.fillmurray.com/500/300")
-    @brioche = create(:location, name: "Brioche Baker",      img_url: "http://www.fillmurray.com/500/300")
+    @brioche = create(:location, name: "Brioche Bakery",     img_url: "http://www.fillmurray.com/500/300")
+    @flora   = create(:location, name: "Cafe Flora",         img_url: "http://www.fillmurray.com/500/300")
   end
 end
 

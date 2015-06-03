@@ -7,8 +7,14 @@
                          {first_name: "Teresa", last_name: "Huang", email: "teresa@gmail.com", admin: true, password: "asdfasdf"}
                         ]
 
-    locations = Location.create [{name: "Jackson Place Cafe", img_url: "http://www.fillmurray.com/500/300"},
-                                 {name: "YoYo's", img_url: "http://www.fillmurray.com/500/300"}
+    locations = Location.create [{name: "Jackson Place Cafe", img_url: "http://s3-media2.fl.yelpcdn.com/bphoto/wnzCFQmFCelHRvtMDSBQuQ/l.jpg"},
+                                 {name: "YoYo's", img_url: "http://s3-media1.fl.yelpcdn.com/bphoto/2rvvRVjBH6HFKq2OihuB0g/l.jpg"},
+                                 {name: "Tradecraft", img_url: "http://s3-media2.fl.yelpcdn.com/bphoto/ISimnz4_yTvuPaa-aOwDMA/l.jpg"},
+                                 {name: "Grumpys Pub", img_url: "http://s3-media1.fl.yelpcdn.com/bphoto/qb6rta1fa41Zif2Ni_Relw/l.jpg"},
+                                 {name: "Cafe Me", img_url: "http://tripwhat.com/img/travel/item:-9223372036852286085:photos/8daa4557f8438379735fe1de5c12bd33-450-190"},
+                                 {name: "Reveille Coffee", img_url: "http://s3-media4.fl.yelpcdn.com/bphoto/hVRz34RKipOGxAj2KH3Aww/l.jpg"},
+                                 {name: "Brioche Bakery", img_url: "http://s3-media1.fl.yelpcdn.com/bphoto/CPo8fHYCkiCgtf5YAAxREQ/l.jpg"},
+                                 {name: "Breaking Bread", img_url: "http://s3-media1.fl.yelpcdn.com/bphoto/efufJEZ0aSItXe76epfNZg/l.jpg"},
                                 ]
 
     customers = Customer.create [{email: "justin@tradecraft.com", birthday: "1985-12-30"},
@@ -22,7 +28,7 @@
     end
 
 
-    
+
 
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
