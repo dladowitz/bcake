@@ -1,28 +1,28 @@
 ---
 volta:
-  id: 1
+  id: 7
   first_name: Alessandro
   last_name: Volta
   email: avolta@gmail.com
-  password_digest: "$2a$04$g7kRDKmv9OyAAxHyICzN.uS61v9fV5Tf897AN5dTiR0G.sVGUNhKy"
+  password_digest: "$2a$04$rdgIaL29.AgLZY8pQPp4OO0bIPAA.1e9wl78caehhYmM8m.FzzgT6"
   admin: 
-  created_at: 2015-06-03 01:39:23.223787000 Z
-  updated_at: 2015-06-03 01:39:23.223787000 Z
+  created_at: 2015-06-03 04:53:20.519653000 Z
+  updated_at: 2015-06-03 04:53:20.519653000 Z
 ampere:
-  id: 2
+  id: 8
   first_name: Andre
   last_name: Ampere
   email: aampere@gmail.com
-  password_digest: "$2a$04$bV7Yz.fdoZ6tiUb8X1D5Y.xek0Kdbx68J.dTVHtP/ZNRaDFyu2T7e"
+  password_digest: "$2a$04$lavPzUaYWLZoPAGt9ilmwezx7OYVjdFanq5vuStYOrihOH44fVh2u"
   admin: 
-  created_at: 2015-06-03 01:39:23.231854000 Z
-  updated_at: 2015-06-03 01:39:23.231854000 Z
+  created_at: 2015-06-03 04:53:20.588262000 Z
+  updated_at: 2015-06-03 04:53:20.588262000 Z
 ohm:
-  id: 3
+  id: 9
   first_name: Georg
   last_name: Ohm
   email: gohm@gmail.com
-  password_digest: "$2a$04$UqejSylsGtnMxvGvkhI5YOem04Lihl68GRWmfgL33RfPoPTCByMfq"
+  password_digest: "$2a$04$4uJhf6Xi.PTIRVudllnNi.A7HGZsdn.udqteSqw29n.SUkmCzpAA."
   admin: 
-  created_at: 2015-06-03 01:39:23.239547000 Z
-  updated_at: 2015-06-03 01:39:23.239547000 Z
+  created_at: 2015-06-03 04:53:20.596301000 Z
+  updated_at: 2015-06-03 04:53:20.596301000 Z

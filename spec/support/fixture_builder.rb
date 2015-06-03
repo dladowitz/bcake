@@ -13,6 +13,7 @@ FixtureBuilder.configure do |fbuilder|
     @ampere  = create(:user, first_name: "Andre",      last_name: "Ampere", email: "aampere@gmail.com" )
     @ohm     = create(:user, first_name: "Georg",      last_name: "Ohm",    email: "gohm@gmail.com" )
 
+    # locations
     @jackson = create(:location, name: "Jackson Place Cafe", img_url: "http://www.fillmurray.com/500/300")
     @yoyos   = create(:location, name: "Yo Yo's",            img_url: "http://www.fillmurray.com/500/300")
     @brioche = create(:location, name: "Brioche Baker",      img_url: "http://www.fillmurray.com/500/300")
