@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150602173244) do
+ActiveRecord::Schema.define(version: 20150603034024) do
+
+  create_table "customers", force: :cascade do |t|
+    t.string   "email"
+    t.date     "birthday"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "customers_locations", id: false, force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "location_id"
+  end
+
+  add_index "customers_locations", ["customer_id"], name: "index_customers_locations_on_customer_id"
+  add_index "customers_locations", ["location_id"], name: "index_customers_locations_on_location_id"
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"

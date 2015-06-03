@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'customers/create'
+
   # root
   root to: "landing_pages#landing"
 
@@ -22,7 +24,13 @@ Rails.application.routes.draw do
 
     # resource routes
     resources :users
-    resources :locations, only: [:index, :show]
+    resources :locations, only: [:index, :show] do
+      member do
+        post :signup
+      end
+    end
+
+    # resources :customers, only: [:create]
     resources :sessions, only: [:new, :create, :destroy]
     resources :password_resets, only: [:create]
   end

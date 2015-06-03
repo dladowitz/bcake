@@ -6,6 +6,12 @@ class LocationsController < ApplicationController
 
   def show
     @location  = Location.find params[:id]
+    @customer  = Customer.new
     render layout: "landing_page/landing_layout"
+  end
+
+  def signup
+    @location = Location.find params[:id]
+    render :signup_confirmation
   end
 end
