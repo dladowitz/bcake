@@ -14,10 +14,16 @@ Then  /they are shown a confirmation screen/ do
 end
 
 And   /they can click on a new location/ do
+  exect(page).to have_content "Yo Yo's"
+  click_link "Yo Yo's"
 end
 
 And   /they can sign up for the new location/ do
+  fill_in "email", with: "misha@tradecraft.com"
+  fill_in "birthday", with: 35.years.ago
+  click_button "Sign Up"
 end
 
 And   /they see the confirmation page again/ do
+  expect(page).to have_content "Thanks for signing up with Yo Yo's"
 end
