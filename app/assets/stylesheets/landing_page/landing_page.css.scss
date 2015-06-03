@@ -14,24 +14,34 @@
 @import "font-awesome";
 
 //////// Styles limited to the landing page \\\\\\\\\\
+
+// phones
 @media only screen
   and (min-device-width: 100px)
   and (max-device-width: 736px) {
   .img-layer {
     height: 2000px;
   }
-
 }
 
+// laptops
+@media screen
+  and (min-device-width: 737px)
+  and (max-device-width: 1600px) {
+  .img-layer {
+    height: 800px;
+  }
+}
 
-
-.main_content {
+.opaque-layer {
   background-color: rgba(225, 225, 225, .65);
   border-radius: 5px;
-  min-height: 300px !important;
   margin-top: 200px;
+  min-height: 300px !important;
   text-align: center;
   padding: 40px;
+}
+.main_content {
   color: #312212;
 
   h1 {
@@ -55,11 +65,21 @@ li.location {
   }
 }
 
-// For laptops
-@media screen
-  and (min-device-width: 737px)
-  and (max-device-width: 1600px) {
-  .img-layer {
-    height: 800px;
+.subheading {
+  font-size: 50px
+}
+
+.signup-form {
+  margin: auto;
+  width: 65%;
+  margin-top: 90px;
+  font-size: 50px;
+
+  input {
+    height: 100px;
+    font-size: 50px;
+    line-height: 50px !important;
+    width: 600px;
+    margin-bottom: 60px;
   }
 }

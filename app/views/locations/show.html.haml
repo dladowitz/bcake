@@ -1,30 +1,26 @@
-%body
-  #page
-    %header#header.site-header
-      = render "landing_pages/header"
+#page
+  %header#header.site-header
+    = render "landing_pages/header"
 
+.container.img-layer.col-xs-12{:style => "background: url(https://farm8.staticflickr.com/7586/16179516094_bff809dcd7_c.jpg); background-size: cover;"}
+  .row
+    .opaque-layer.col-xs-12.col-md-8.col-md-offset-2
+      .main_content.col-xs-10.col-xs-offset-1
+        %h1.section-title
+          %span= @location.name
+        %p.subheading
+          wants to give you something
+          %span.green
+            free
+          on your birthday
 
-    %main#main.site-main
-      %section#carousel-1.carousel.slide.section-slide{"data-ride" => "carousel"}
-        .carousel-inner
-          .item.active{:style => "background: url(https://farm7.staticflickr.com/6149/6041904680_5286493e4e_b.jpg); background-size: cover;"}
-            .container
-              .main_content.pt10.pb40.col-sm-8.col-sm-offset-2
-                %h1.section-title
-                  %span= @location.name
-                %p wants to give you something free on your birthday
+        .signup-form
+          = form_tag signup_location_path do
+            .form-group
+              = label_tag :email
+              = email_field_tag :email, nil, class: "form-control", placeholder: "tony.stark@gmail.com"
+            .form-group
+              = label_tag :birthday
+              = date_field_tag :birthday, nil, class: "form-control input-lg", value: "01/05/1980"
 
-                .signup-form
-                  = form_tag signup_location_path do
-                    = label_tag :email
-                    = email_field_tag :email
-                    = label_tag :birthday
-                    = date_field_tag :birthday
-                    = submit_tag "Sign Up", class: "btn btn-success"
-
-      %section.section.section-center.section-cta.pt10.pb20
-        .container
-
-
-    %footer#footer.site-footer.mt100
-      = render "landing_pages/footer"
+            = submit_tag "Sign Up", class: "btn btn-success"
