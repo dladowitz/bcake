@@ -1,8 +1,20 @@
-%h1
-  %span Thanks for signing up with
-  %span= @location.name
+%header#header.site-header
+  = render "landing_pages/header"
 
-.nearby-locations
-  %ul
-    - @locations.each do |location|
-      %li.location= link_to location.name, location_path(location) 
+.container.img-layer.col-xs-12{:style => "background: url(https://farm9.staticflickr.com/8031/8014760415_67d3966180_c.jpg); background-size: cover;"}
+  .row
+    .opaque-layer-confirmation.col-xs-12.col-md-8.col-md-offset-2
+      .main_content.col-xs-10.col-xs-offset-1
+        .section-title
+          .thanks Thanks for signing up with
+          %h1.green= @location.name
+        %p.send-deals Check out other businesses you might like
+
+  .row
+    .nearby-locations
+      - @locations.each do |location|
+        = link_to location_path(location) do
+          .business{:style => "background: url(#{location.img_url}); background-size: cover;"}
+            .backing-layer
+              .name= location.name
+              .distance.green 4.2mi

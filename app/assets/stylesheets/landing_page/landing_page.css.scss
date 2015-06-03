@@ -1,5 +1,5 @@
 /*
- * Manifest for landing page.
+ * Manifest for landing and locations pages.
  * Note that 'landing_page/landing_page.css' has been added to Rails.application.config.assets.precompile in assets.rb
  *
  *= require_self
@@ -13,7 +13,8 @@
 
 @import "font-awesome";
 
-//////// Styles limited to the landing page \\\\\\\\\\
+//////// Styles limited to the landing and locations pages \\\\\\\\\\
+
 
 // phones
 @media only screen
@@ -24,6 +25,7 @@
   }
 }
 
+
 // laptops
 @media screen
   and (min-device-width: 737px)
@@ -32,6 +34,7 @@
     height: 800px;
   }
 }
+
 
 .opaque-layer {
   background-color: rgba(225, 225, 225, .65);
@@ -69,6 +72,14 @@ li.location {
   font-size: 50px
 }
 
+.thanks {
+  font-size: 65px;
+}
+
+.send-deals {
+  font-size: 20px;
+}
+
 .signup-form {
   margin: auto;
   width: 65%;
@@ -82,4 +93,33 @@ li.location {
     width: 600px;
     margin-bottom: 60px;
   }
+}
+
+
+// signup_confirmation page
+.opaque-layer-confirmation {
+  background-color: rgba(225, 225, 225, .65);
+  border-radius: 5px;
+  margin-top: 50px;
+  min-height: 300px !important;
+  text-align: center;
+  padding: 40px;
+}
+
+.business {
+  height: 300px;
+  border-top: 10px solid green;
+
+  .name {
+    color: white;
+    font-size: 100px;
+  }
+  .distance {
+    font-size: 60px;
+  }
+}
+
+.backing-layer {
+  padding: 30px;
+  background: rgba(0, 0, 0, .75)
 }
