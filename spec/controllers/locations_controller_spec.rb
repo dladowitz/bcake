@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 describe LocationsController do
+  before { subject }
+
   describe 'GET index' do
     subject { get :index }
-
-    before { subject }
 
     it 'returns the index template' do
       expect(response).to render_template :index
@@ -20,7 +20,7 @@ describe LocationsController do
   end
 
   describe 'Get show' do
-    let { create: location, name: "tradecraft" }
+    let (:location) { create :location, name: "tradecraft" }
     subject { get :show, {id: location.id} }
 
     it 'returns the show template' do
