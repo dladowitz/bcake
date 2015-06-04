@@ -68,6 +68,10 @@ li.location {
   }
 }
 
+// landing page
+.better {
+  color: blue;
+}
 
 // location page
 .signup-form {
@@ -77,6 +81,7 @@ li.location {
 
   input {
     height: 100px;
+    width: 100%;
     font-size: 50px;
     line-height: 80px !important;
     margin-bottom: 60px;
