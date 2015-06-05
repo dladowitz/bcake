@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-  get 'customers/create'
+  # get 'customers/create'
 
   # root
   root to: "landing_pages#landing"
 
   # using root to for url shortener
   get "/:id", to:"locations#show", as: :short_location
-
 
   # need to use a url namespace since we are using root for locations.
   # kinda crappy, would like to find a better solution.

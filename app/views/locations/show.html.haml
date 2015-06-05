@@ -24,3 +24,10 @@
               = email_field_tag :email, nil, class: "form-control", placeholder: "tony.stark@gmail.com"
 
             = submit_tag "Sign Up", class: "btn btn-success sign-up"
+
+:javascript
+  var textbox = document.getElementById('dob')
+  textbox.onfocus = function (event) {
+    this.type = 'date';
+    rsthis.focus();
+  }
