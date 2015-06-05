@@ -4,9 +4,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:danger] = "You are not authorized for this page. All your bases are belong to us."
-    puts "---------- You are not authorized for this page. All your bases are belong to us. ----------"
-    redirect_to user_path(current_user)
+    if current_user
+      flash[:danger] = "You are not authorized for this page. All your bases are belong to us."
+      puts "---------- You are not authorized for this page. All your bases are belong to us. ----------"
+      redirect_to user_path(current_user)
+    else
+      flash[:danger] = "You must be logged for this page. All your bases are belong to us."
+      puts "---------- You must be logged for this page. All your bases are belong to us. ----------"
+
+      redirect_to root_path
+    end
+
   end
 
   rescue_from ActiveRecord::RecordNotFound do |exception|
@@ -20,4 +28,10 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user  #makes available in view
 
+  def require_login
+    unless current_user
+      flash[:danger] = "You must be logged in to do that."
+      redirect_to root_path and return
+    end
+  end
 end

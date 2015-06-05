@@ -12,6 +12,10 @@
 #  updated_at      :datetime
 #
 
+# TODO Users are actually owners/managers of locations.
+# At some point we probably want to change the name of the model to better reflect.
+# Or create a user subclass.
+
 class User < ActiveRecord::Base
   validates :first_name, presence: true
   validates :email,      presence: true, uniqueness: true
@@ -23,6 +27,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
   has_many :password_resets
+  has_many :locations
 
 
   ### Instance Methods

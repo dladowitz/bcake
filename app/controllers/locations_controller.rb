@@ -1,6 +1,7 @@
 class LocationsController < ApplicationController
-  layout "landing_page/landing_layout"
+  layout "landing_page/landing_layout", only: [:index, :show, :signup]
   before_filter :url_rerouter, only: :show
+  before_filter :require_login, only: :user_locations
 
   def index
     @locations = Location.all
@@ -25,6 +26,11 @@ class LocationsController < ApplicationController
     @customer.save
 
     render :signup_confirmation
+  end
+
+  # Not sure if user_locations and user_location should be their own controller.
+  def user_locations
+    @locations = current_user.locations
   end
 
   private

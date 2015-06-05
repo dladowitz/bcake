@@ -30,3 +30,34 @@ Then /they are logged out of the site/ do
   uri = URI.parse(current_url)
   expect(uri.path).to eq signin_path
 end
+
+
+# Used for signin on other specs.
+# Pretty sure there is a way to do a fast-sign in by just setting the session
+And /A non-admin user signs in successfully/ do
+  @user = users(:owner)
+  visit signin_path
+  uri = URI.parse(current_url)
+  expect(uri.path).to eq signin_path
+
+  fill_in "email",                 with: @user.email
+  fill_in "password",              with: "asdfasdf"
+
+  click_button "Sign In"
+
+  expect(page).to have_content "Welcome, #{@user.first_name}"
+end
+
+And /An admin user signs in successfully/ do
+  @user = users(:david)
+  visit signin_path
+  uri = URI.parse(current_url)
+  expect(uri.path).to eq signin_path
+
+  fill_in "email",                 with: @user.email
+  fill_in "password",              with: "asdfasdf"
+
+  click_button "Sign In"
+
+  expect(page).to have_content "Welcome, #{@user.first_name}"
+end

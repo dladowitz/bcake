@@ -9,15 +9,14 @@ FixtureBuilder.configure do |fbuilder|
   fbuilder.factory do
 
     # users
-    @volta   = create(:user, first_name: "Alessandro", last_name: "Volta",  email: "avolta@gmail.com" )
-    @ampere  = create(:user, first_name: "Andre",      last_name: "Ampere", email: "aampere@gmail.com" )
-    @ohm     = create(:user, first_name: "Georg",      last_name: "Ohm",    email: "gohm@gmail.com" )
+    @admin    = create(:user, first_name: "David",   last_name: "Ladowitz", email: "david@tradecraft.com", admin: true )
+    @owner    = create(:user, first_name: "Carlos",  last_name: "Santana",  email: "carlos@tradecraft.com" )
 
     # locations
-    @jackson = create(:location, name: "Jackson Place Cafe", img_url: "http://www.fillmurray.com/500/300")
-    @yoyos   = create(:location, name: "Yo Yo's",            img_url: "http://www.fillmurray.com/500/300")
-    @brioche = create(:location, name: "Brioche Bakery",     img_url: "http://www.fillmurray.com/500/300")
-    @flora   = create(:location, name: "Cafe Flora",         img_url: "http://www.fillmurray.com/500/300")
+    @jackson = create(:location, name: "Jackson Place Cafe", user_id: @owner.id, img_url: "http://www.fillmurray.com/500/300")
+    @yoyos   = create(:location, name: "Yo Yo's",            user_id: @owner.id, img_url: "http://www.fillmurray.com/500/300")
+    @brioche = create(:location, name: "Brioche Bakery",     user_id: @owner.id, img_url: "http://www.fillmurray.com/500/300")
+    @flora   = create(:location, name: "Cafe Flora",         user_id: @owner.id, img_url: "http://www.fillmurray.com/500/300")
   end
 end
 

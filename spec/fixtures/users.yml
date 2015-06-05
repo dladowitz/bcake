@@ -1,28 +1,19 @@
 ---
-volta:
+admin:
   id: 1
-  first_name: Alessandro
-  last_name: Volta
-  email: avolta@gmail.com
-  password_digest: "$2a$04$yOOjETuc5u1r2kLffUvJ9uw6.v3G5gvEwWGsyTXpzKpbOIsQMNMri"
-  admin: 
-  created_at: 2015-06-03 17:48:57.930973000 Z
-  updated_at: 2015-06-03 17:48:57.930973000 Z
-ampere:
+  first_name: David
+  last_name: Ladowitz
+  email: david@tradecraft.com
+  password_digest: "$2a$04$lv07lJ8oGEv8I967kwIlcea4CLCrbQIHdC/PHTVSUAQO6LTYLQWoK"
+  admin: true
+  created_at: 2015-06-05 22:29:58.067035000 Z
+  updated_at: 2015-06-05 22:29:58.067035000 Z
+owner:
   id: 2
-  first_name: Andre
-  last_name: Ampere
-  email: aampere@gmail.com
-  password_digest: "$2a$04$vAOqMkM/x6g/.kJwG9C5j.ozCFe9gZ1tLWCO9T9Iwsbdts2W.jzRi"
+  first_name: Carlos
+  last_name: Santana
+  email: carlos@tradecraft.com
+  password_digest: "$2a$04$cOMADZ6blHyC6Z8OWBCkBuJWxUJXJxRcPw4IYWQcmOh.jSNttesS6"
   admin: 
-  created_at: 2015-06-03 17:48:57.936217000 Z
-  updated_at: 2015-06-03 17:48:57.936217000 Z
-ohm:
-  id: 3
-  first_name: Georg
-  last_name: Ohm
-  email: gohm@gmail.com
-  password_digest: "$2a$04$yL7sddKoNnaVtLtU6Rohe.wAx0aFLroix5vhXVb.z3jVxjNEJ9DM6"
-  admin: 
-  created_at: 2015-06-03 17:48:57.944050000 Z
-  updated_at: 2015-06-03 17:48:57.944050000 Z
+  created_at: 2015-06-05 22:29:58.084012000 Z
+  updated_at: 2015-06-05 22:29:58.084012000 Z

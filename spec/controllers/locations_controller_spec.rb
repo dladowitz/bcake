@@ -51,4 +51,38 @@ describe LocationsController do
       end
     end
   end
+
+
+  describe 'GET user_locations' do
+    subject { get :user_locations }
+
+    context 'when logged in as a user' do
+
+      before do
+        @user = users(:owner)
+        login_user @user
+        subject
+      end
+
+      it 'returns the user_locations template' do
+        expect(response).to render_template :user_locations
+      end
+
+      it 'finds all the users locations' do
+        expect(assigns[:locations]).to eq @user.locations
+      end
+    end
+
+    context 'when not logged in' do
+      before { subject }
+
+      it "renders the home page" do
+        expect(response).to redirect_to root_path
+      end
+
+      it "displays an error message" do
+        expect(flash[:danger]).to eq "You must be logged in to do that."
+      end
+    end
+  end
 end
