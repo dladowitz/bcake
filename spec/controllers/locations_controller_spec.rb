@@ -18,7 +18,81 @@ describe LocationsController do
     end
   end
 
-  describe 'Get show' do
+  describe 'GET new' do
+    subject { get :new }
+
+    context 'with a logged in user' do
+      let(:user) { users(:owner) }
+
+      before do
+        login_user user
+        subject
+      end
+
+      it 'returns the new template' do
+        expect(response).to render_template :new
+      end
+
+      it 'instantiates a location object' do
+        expect(assigns[:location]).to be_a Location
+      end
+    end
+
+    context 'without a logging in user' do
+      before { subject }
+
+      it 'redirects to the root page' do
+        expect(response).to redirect_to root_path
+      end
+
+      it 'displays a flash message' do
+        expect(flash[:danger]).to eq "You must be logged in to do that."
+      end
+    end
+  end
+
+  describe 'POST create' do
+    subject { post :create, location: { name: "Ramen Underground", img_url: "http://foodinline.com/images/vendor/8731/home/m-ramenunderground.jpg"}}
+
+    context "with a logged in user" do
+      let(:user) { users(:owner) }
+      before do
+        login_user user
+        subject
+      end
+
+      it "creates a new location in the database" do
+        binding.pry
+        # Pretty sure subject is firing in a funny order or something
+        expect{ subject }.to change{ Location.count }.by 1
+
+      end
+
+      # it "renders the :user_location template" do
+      #   expext(response).to render_template :user_location
+      # end
+      #
+      # it "adds the location to the user" do
+      #   expect(user.reload.locations.last.name).to eq "Ramen Underground"
+      # end
+
+    end
+
+    context "without a logged in user" do
+      before { subject }
+
+      # TODO DRY this up with an 'it behaves like' thing. It should be used all over the place.
+      it "redirects to the root page" do
+      end
+
+      it "shows a flash message" do
+      end
+
+    end
+
+  end
+
+  describe 'GET show' do
     let (:location) { create :location, name: "tradecraft" }
     subject { get :show, {id: location.id} }
     before { subject }
@@ -52,15 +126,14 @@ describe LocationsController do
     end
   end
 
-
   describe 'GET user_locations' do
     subject { get :user_locations }
 
     context 'when logged in as a user' do
+      let(:user) { users(:owner) }
 
       before do
-        @user = users(:owner)
-        login_user @user
+        login_user user
         subject
       end
 
@@ -69,7 +142,7 @@ describe LocationsController do
       end
 
       it 'finds all the users locations' do
-        expect(assigns[:locations]).to eq @user.locations
+        expect(assigns[:locations]).to eq user.locations
       end
     end
 

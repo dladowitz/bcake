@@ -15,11 +15,10 @@ end
 
 Then  /they can create a new location/ do
   click_link "Locations"
-  expect(page).to have_content "You don't have any locations yet"
   click_link "Create New Location"
   expect(page).to have_content "New Location"
-  fill_in "name", with: "Sugar Cafe"
-  fill_in "img_url", with: "http://www.sugarcafesf.com/fireplace1.jpg"
+  fill_in "location_name", with: "Sugar Cafe"
+  fill_in "location_img_url", with: "http://www.sugarcafesf.com/fireplace1.jpg"
   click_button "Create Location"
   expect(page).to have_content "Nice. Location Created Successfully"
 end

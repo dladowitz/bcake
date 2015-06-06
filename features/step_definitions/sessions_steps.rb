@@ -3,7 +3,7 @@ And /they click on the signin link/ do
 end
 
 And /they fill out the signin form/ do
-  user = users(:ampere)
+  user = users(:admin)
 
   uri = URI.parse(current_url)
   expect(uri.path).to eq signin_path
@@ -16,7 +16,7 @@ And /they fill out the signin form/ do
 end
 
 Then /they are logged into the site/ do
-  expect(page).to have_content "Welcome, Andre"
+  expect(page).to have_content "Welcome, David"
 end
 
 Then /they click the logout link/ do

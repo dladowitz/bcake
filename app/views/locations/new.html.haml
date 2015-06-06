@@ -1,0 +1,8 @@
+%h1 New Location
+
+= form_for @location do |f|
+  = f.label :name
+  = f.text_field :name
+  = f.label :img_url, "Image URL"
+  = f.text_field :img_url
+  = f.submit class: "btn btn-success"

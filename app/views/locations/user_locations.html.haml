@@ -1,3 +1,5 @@
-Hello, here are the locations you own
+= link_to "Create New Location", new_location_path, class: "btn btn-success"
+
+%h1 Hello, here are the locations you own
 - @locations.each do |location|
   %li= location.name

@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_filter :require_login
+  
   def new
     render layout: "landing_page/landing_layout"
   end

@@ -1,7 +1,7 @@
 class LocationsController < ApplicationController
   layout "landing_page/landing_layout", only: [:index, :show, :signup]
   before_filter :url_rerouter, only: :show
-  before_filter :require_login, only: :user_locations
+  skip_before_filter :require_login, only: [:index, :show, :signup]
 
   def index
     @locations = Location.all
@@ -10,6 +10,22 @@ class LocationsController < ApplicationController
   def show
     @location  = Location.find params[:id]
   end
+
+  def new
+    @location = Location.new
+  end
+
+  def create
+    @location = Location.new(location_params)
+    @location.user_id = current_user.id
+    if @location.save
+      flash[:success] = "Location Created Successfully!" #TODO pretty sure there is short hand to for this.
+      render :user_location
+    else
+      render :new
+    end
+  end
+
 
   def signup
     # TODO create a method to intelligently pull nearby locations
@@ -46,5 +62,9 @@ class LocationsController < ApplicationController
     if params[:id].to_i == 0
       redirect_to "/c/#{params[:id]}"
     end
+  end
+
+  def location_params
+    params.require(:location).permit(:name, :img_url)
   end
 end

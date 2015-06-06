@@ -3,6 +3,9 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  # most features require a user to be logged on.
+  before_filter :require_login
+
   rescue_from CanCan::AccessDenied do |exception|
     if current_user
       flash[:danger] = "You are not authorized for this page. All your bases are belong to us."
