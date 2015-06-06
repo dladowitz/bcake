@@ -185,11 +185,11 @@ describe LocationsController do
         end
 
         it 'redirect_to the user_locations' do
-          expect(response).to redirect_to :user_locations
+          expect(response).to redirect_to user_path(user2)
         end
 
         it 'it displays a flash danger message' do
-          expect(flash[:danger]).to eq "Unauthorized for that location"
+          expect(flash[:danger]).to eq "You are not authorized for this page. All your bases are belong to us."
         end
       end
     end

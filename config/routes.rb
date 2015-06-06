@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
     # maybe roll these into their own controller instead of using locations
     get "/user/locations",    to: "locations#user_locations", as: :user_locations
-    get "/user/location/:id", to: 'locations#user_location', as: :user_location
+    get "/user/locations/:id", to: 'locations#user_location', as: :user_location
 
     # resource routes
     resources :users

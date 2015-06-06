@@ -51,12 +51,7 @@ class LocationsController < ApplicationController
 
   def user_location
     @location = Location.find params[:id]
-
-    # need to use cancan for authentication. Sighhhhh its such a pain.
-    unless @location.user == current_user
-      flash[:danger] = "Unauthorized for that location"
-      redirect_to user_locations_path
-    end
+    authorize! :user_location, @location
   end
 
   private

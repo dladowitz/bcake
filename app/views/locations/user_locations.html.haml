@@ -2,4 +2,4 @@
 
 %h1 Hello, here are the locations you own
 - @locations.each do |location|
-  %li= link_to location.name, "#"
+  %li= link_to location.name, user_location_path(location)
