@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
 
   end
 
+  # TODO need to suppress puts statements in specs
   rescue_from ActiveRecord::RecordNotFound do |exception|
     flash[:danger] = "That's not a thing in the database"
     puts "---------- That's not a thing in the database ----------"

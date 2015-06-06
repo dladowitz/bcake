@@ -1,8 +1,11 @@
 %h1 New Location
 
-= form_for @location do |f|
-  = f.label :name
-  = f.text_field :name
-  = f.label :img_url, "Image URL"
-  = f.text_field :img_url
-  = f.submit class: "btn btn-success"
+.col-sm-6
+  = form_for @location do |f|
+    .form-group
+      = f.label :name
+      = f.text_field :name, class: "form-control"
+    .form-group
+      = f.label :img_url, "Image URL"
+      = f.text_field :img_url, class: "form-control"
+    = f.submit class: "btn btn-success"

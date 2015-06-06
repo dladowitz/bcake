@@ -19,7 +19,7 @@ class LocationsController < ApplicationController
     @location = Location.new(location_params)
     @location.user_id = current_user.id
     if @location.save
-      flash[:success] = "Location Created Successfully!" #TODO pretty sure there is short hand to for this.
+      flash[:success] = "Nice. Location Created Successfully." #TODO pretty sure there is short hand to for this.
       render :user_location
     else
       render :new
@@ -47,6 +47,16 @@ class LocationsController < ApplicationController
   # Not sure if user_locations and user_location should be their own controller.
   def user_locations
     @locations = current_user.locations
+  end
+
+  def user_location
+    @location = Location.find params[:id]
+
+    # need to use cancan for authentication. Sighhhhh its such a pain.
+    unless @location.user == current_user
+      flash[:danger] = "Unauthorized for that location"
+      redirect_to user_locations_path
+    end
   end
 
   private

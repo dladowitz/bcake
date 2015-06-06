@@ -56,25 +56,21 @@ describe LocationsController do
 
     context "with a logged in user" do
       let(:user) { users(:owner) }
-      before do
-        login_user user
-        subject
-      end
+      before { login_user user }
 
       it "creates a new location in the database" do
-        binding.pry
-        # Pretty sure subject is firing in a funny order or something
         expect{ subject }.to change{ Location.count }.by 1
-
       end
 
-      # it "renders the :user_location template" do
-      #   expext(response).to render_template :user_location
-      # end
-      #
-      # it "adds the location to the user" do
-      #   expect(user.reload.locations.last.name).to eq "Ramen Underground"
-      # end
+      it "renders the :user_location template" do
+        subject
+        expect(response).to render_template :user_location
+      end
+
+      it "adds the location to the user" do
+        subject
+        expect(user.reload.locations.last.name).to eq "Ramen Underground"
+      end
 
     end
 
@@ -83,11 +79,12 @@ describe LocationsController do
 
       # TODO DRY this up with an 'it behaves like' thing. It should be used all over the place.
       it "redirects to the root page" do
+        expect(response).to redirect_to root_path
       end
 
       it "shows a flash message" do
+        expect(flash[:danger]).to eq "You must be logged in to do that."
       end
-
     end
 
   end
@@ -147,6 +144,57 @@ describe LocationsController do
     end
 
     context 'when not logged in' do
+      before { subject }
+
+      it "renders the home page" do
+        expect(response).to redirect_to root_path
+      end
+
+      it "displays an error message" do
+        expect(flash[:danger]).to eq "You must be logged in to do that."
+      end
+    end
+  end
+
+  describe 'GET user_location' do
+    let(:user)     { users(:owner)}
+    let(:user2)    { users(:owner2)}
+    let(:location) { user.locations.first}
+    subject { get :user_location, id: location.id}
+
+      context 'when the location belongs to the user' do
+        context 'with a logged in user' do
+          before do
+            login_user user
+            subject
+          end
+
+        it 'renders the user_location template' do
+          expect(response).to render_template :user_location
+        end
+
+        it 'finds the correct location' do
+          expect(assigns(:location)).to eq location
+        end
+      end
+
+      context 'when the location does not belong to the user' do
+        before do
+          login_user user2
+          subject
+        end
+
+        it 'redirect_to the user_locations' do
+          expect(response).to redirect_to :user_locations
+        end
+
+        it 'it displays a flash danger message' do
+          expect(flash[:danger]).to eq "Unauthorized for that location"
+        end
+      end
+    end
+
+    context 'without a logged in user' do
       before { subject }
 
       it "renders the home page" do

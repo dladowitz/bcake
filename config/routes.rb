@@ -21,7 +21,10 @@ Rails.application.routes.draw do
     get    "/reset_password/:token", to: "password_resets#reset_password",   as: :reset_password
     patch  "/reset_password/:token", to: "password_resets#update",           as: :password_reset
 
-    get "/user/locations", to: "locations#user_locations", as: :user_locations
+    # maybe roll these into their own controller instead of using locations
+    get "/user/locations",    to: "locations#user_locations", as: :user_locations
+    get "/user/location/:id", to: 'locations#user_location', as: :user_location
+
     # resource routes
     resources :users
     resources :locations, only: [:index, :show, :new, :create] do

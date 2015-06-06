@@ -9,8 +9,9 @@ FixtureBuilder.configure do |fbuilder|
   fbuilder.factory do
 
     # users
-    @admin    = create(:user, first_name: "David",   last_name: "Ladowitz", email: "david@tradecraft.com", admin: true )
-    @owner    = create(:user, first_name: "Carlos",  last_name: "Santana",  email: "carlos@tradecraft.com" )
+    @admin     = create(:user, first_name: "David",    last_name: "Ladowitz", email: "david@tradecraft.com",  admin: true )
+    @owner     = create(:user, first_name: "Brandon",  last_name: "David",    email: "brandon@tradecraft.com", admin: false )
+    @owner2    = create(:user, first_name: "Justin",   last_name: "Smith",    email: "justing@tradecraft.com", admin: false )
 
     # locations
     @jackson = create(:location, name: "Jackson Place Cafe", user_id: @owner.id, img_url: "http://www.fillmurray.com/500/300")

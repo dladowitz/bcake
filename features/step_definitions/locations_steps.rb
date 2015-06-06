@@ -20,11 +20,12 @@ Then  /they can create a new location/ do
   fill_in "location_name", with: "Sugar Cafe"
   fill_in "location_img_url", with: "http://www.sugarcafesf.com/fireplace1.jpg"
   click_button "Create Location"
-  expect(page).to have_content "Nice. Location Created Successfully"
+  expect(page).to have_content "Nice. Location Created Successfully."
 end
 
 
-
 Then  /they can view that location/ do
-
+  visit user_locations_path
+  click_link "Sugar Cafe"
+  expect(page).to have_content "Location: Sugar Cafe"
 end
