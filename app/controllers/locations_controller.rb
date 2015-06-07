@@ -4,7 +4,6 @@ class LocationsController < ApplicationController
   skip_before_filter :require_login, only: [:index, :show, :signup]
 
   def index
-    locations.none
     @locations = Location.all
   end
 
