@@ -1,42 +1,39 @@
 Rails.application.routes.draw do
-  # get 'customers/create'
-
   # root
   root to: "landing_pages#landing"
 
-  # using root to for url shortener
-  get "/:id", to:"locations#show", as: :short_location
+  # matches only when :id is a number. allows all others to pass through.
+  get "/:id", to: "locations#show", constraints: { id: /\d+/}
 
-  # need to use a url namespace since we are using root for locations.
-  # kinda crappy, would like to find a better solution.
-  # here we've added a /c in the url
-  scope '/c' do
-    # custom routes
-    get    :landing,     to: "landing_pages#landing",      as: :landing
-    get    :signin,      to: "sessions#new",               as: :signin
-    get    :signup,      to: "users#new",                  as: :signup
+  # custom routes
+  get    :landing,     to: "landing_pages#landing",      as: :landing
+  get    :signin,      to: "sessions#new",               as: :signin
+  get    :signup,      to: "users#new",                  as: :signup
 
-    # maybe make into a named resource
-    get    :request_password,        to: "password_resets#request_password", as: :request_password
-    get    "/reset_password/:token", to: "password_resets#reset_password",   as: :reset_password
-    patch  "/reset_password/:token", to: "password_resets#update",           as: :password_reset
+  # maybe make into a named resource
+  get    :request_password,        to: "password_resets#request_password", as: :request_password
+  get    "/reset_password/:token", to: "password_resets#reset_password",   as: :reset_password
+  patch  "/reset_password/:token", to: "password_resets#update",           as: :password_reset
 
-    # maybe roll these into their own controller instead of using locations
-    get "/user/locations",    to: "locations#user_locations", as: :user_locations
-    get "/user/locations/:id", to: 'locations#user_location', as: :user_location
+  # maybe roll these into their own controller instead of using locations
+  get "/user/locations",    to: "locations#user_locations", as: :user_locations
+  get "/user/locations/:id", to: 'locations#user_location', as: :user_location
 
-    # resource routes
-    resources :users
-    resources :locations, only: [:index, :show, :new, :create] do
-      member do
-        post :signup
-      end
+  # resource routes
+  resources :users
+  resources :locations, only: [:index, :show, :new, :create] do
+    member do
+      post :signup
     end
-
-    # resources :customers, only: [:create]
-    resources :sessions, only: [:new, :create, :destroy]
-    resources :password_resets, only: [:create]
   end
+
+  # resources :customers, only: [:create]
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :password_resets, only: [:create]
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

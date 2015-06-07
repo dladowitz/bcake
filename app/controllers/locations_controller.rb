@@ -1,9 +1,10 @@
 class LocationsController < ApplicationController
   layout "landing_page/landing_layout", only: [:index, :show, :signup]
-  before_filter :url_rerouter, only: :show
+  # before_filter :url_rerouter, only: :show
   skip_before_filter :require_login, only: [:index, :show, :signup]
 
   def index
+    locations.none
     @locations = Location.all
   end
 
