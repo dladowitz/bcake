@@ -32,6 +32,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'factory_girl_rails', '~> 4.2.1'
   gem 'faker'
   gem 'fixture_builder'
