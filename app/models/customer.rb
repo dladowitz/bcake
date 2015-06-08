@@ -15,10 +15,12 @@ class Customer < ActiveRecord::Base
   has_and_belongs_to_many :locations
 
   def add_location(location)
-    if locations.include?(location)
+    if self.locations.include?(location)
       return false
     else
-      locations << location
+      self.locations << location
+      # TODO send asyncronously
+      CustomerMailer.location_signup_email(self, location).deliver_now
     end
   end
 end

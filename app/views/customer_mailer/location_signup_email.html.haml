@@ -1,0 +1,17 @@
+.container
+  = image_tag attachments["logo.png"].url, style: "width: 700px; margin-left: 25%;"
+
+  -#Css classes are not being loaded. Premailer gem is supposed to handle
+  .col-md-8.col-md-offset-2.mt50{style: "width: 50%; margin: 20px auto"}
+    .panel.panel-success
+      .panel-heading{style: "background-color: yellowgreen !important"}
+        .panel-title
+          %h2.text-center= "Thanks for signing up with #{@location.name}."
+      .panel-body.pr30.pl30
+        %h3.text-center Keep an eye out for this month's deal in the next few days.
+        %p Each month we'll be sending you something free from a place you already love.
+
+      .panel-footer
+        %h5
+        = link_to "Cake", "www.bcake.co", class: "blue underline text-center"
+- binding.pry
