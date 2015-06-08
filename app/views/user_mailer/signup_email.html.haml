@@ -6,27 +6,15 @@
     .panel.panel-success
       .panel-heading{style: "background-color: yellowgreen !important"}
         .panel-title
-          %h2.text-center Thanks for signing up.
+          %h2.text-center Thanks for signing up with Cake.
       .panel-body.pr30.pl30
         %h3.text-center Keep an eye out for updates in the coming weeks.
         %p
-          Our first tool is available now. It converts water to gasoline
-        %p
-          We are planning on rolling out some more great tools soon.
+          We are releasing new tools and feature weekly.
 
-        %h3 Things you can start doing now
-        %ul
-          %li Thing 1
-          %li Thing 2
-          %li Thing 3
-          %li Thing 4
-
-
-        %h3 Check out some cat videos
-        %p
-          Because the internet runs on
-          = link_to "cat videos.", "https://www.youtube.com/watch?v=G4Sn91t1V4g&list=PLRJ3wP0JDyti94Op1oLm4fKZEtC_c36NI", class: "underline blue"
-
+        %h3
+          =link_to "Log in", signin_path
+          now to create new locations
       .panel-footer
         %h5
-        = link_to "Cake", "#", class: "blue underline text-center"
+        = link_to "Cake", "www.bcake.co", class: "blue underline text-center"
