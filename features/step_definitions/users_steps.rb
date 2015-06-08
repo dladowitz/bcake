@@ -19,5 +19,5 @@ And /they see the user homepage/ do
 
   # TODO create a current_user method. Doesn't seem to have access to rpsec or application controller
   # expect(uri.path).to eq user_path(current_user)
-  expect(page).to have_content "Account created successfully. Lets make some money!"
+  expect(page).to have_content "Account created successfully. Lets get some more customers!"
 end
