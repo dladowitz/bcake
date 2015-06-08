@@ -103,22 +103,43 @@ describe LocationsController do
     let (:location) { create :location, name: "tradecraft" }
     subject { post :signup, {id: location.id, email: "janardin@tradecraft.com", birthday: "1981-07-04"}}
 
-    it "adds a location to the customer" do
-      subject
-      expect(assigns(:customer).locations).to include location
-    end
-
     context "when there are no customers with the email address already" do
       it "creates a new customer in the database" do
         expect{ subject }.to change{ Customer.count }.by 1
       end
+
+      it "adds a location to the customer" do
+        subject
+        expect(assigns(:customer).locations).to include location
+      end
+
     end
 
     context "when there already is a customer with the email address" do
       before { create :customer, email: "janardin@tradecraft.com" }
 
-      it "does not create a new customer in the database" do
-        expect{ subject }.not_to change{ Customer.count}
+      context "when the customer has NOT already signed up for the location" do
+        it "does not create a new customer in the database" do
+          expect{ subject }.not_to change{ Customer.count}
+        end
+
+        it "adds a location to the customer" do
+          subject
+          expect(assigns(:customer).locations).to include location
+        end
+      end
+
+      context "when the customer HAS already signed up for the location" do
+        before { post :signup, {id: location.id, email: "janardin@tradecraft.com", birthday: "1981-07-04"}}
+
+        it "does not add the location to the customer" do
+          expect(assigns(:customer).locations.count).to eq 1
+        end
+
+        it "renders signup_error template" do
+          subject
+          expect(response).to render_template :signup_error
+        end
       end
     end
   end

@@ -38,10 +38,7 @@ class LocationsController < ApplicationController
     end
 
     # add location to customer
-    @customer.locations << @location
-    @customer.save
-
-    render :signup_confirmation
+    @customer.add_location(@location) ? (render :signup_confirmation) : (render :signup_error)
   end
 
   # Not sure if user_locations and user_location should be their own controller.
