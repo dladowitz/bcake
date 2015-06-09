@@ -1,20 +1,52 @@
-.container
-  = image_tag attachments["logo.png"].url, style: "width: 700px; margin-left: 25%;"
+%head
+  = stylesheet_link_tag  'email/email', media: 'all'
 
-  -#Css classes are not being loaded. Premailer gem is supposed to handle
-  .col-md-8.col-md-offset-2.mt50{style: "width: 50%; margin: 20px auto"}
-    .panel.panel-success
-      .panel-heading{style: "background-color: yellowgreen !important"}
-        .panel-title
-          %h2.text-center Thanks for signing up with Cake.
-      .panel-body.pr30.pl30
-        %h3.text-center Keep an eye out for updates in the coming weeks.
-        %p
-          We'll be releasing new tools very soon.
+%table.body-wrap
+  %tr
+    %td
+    %td.container{:width => "600"}
+      .content
+        %table.main{:cellpadding => "0", :cellspacing => "0", :width => "100%"}
+          %tr
+            %td.content-wrap
+              %table{:cellpadding => "0", :cellspacing => "0"}
+                %tr
+                  %td
+                    .signup-header.navy-bg
+                      %h1{:style => "color: white"} Thanks for signing up with Cake
+                %tr
+                  %td.content-block
+                    %h3 Keep an eye out for updates in the coming weeks.
+                %tr
+                  %td.content-block
+                    We'll be releasing new tools very soon.
+                %tr
+                  %td.content-block
+                    =link_to "Log in", "http://www.bcake.co/signin"
+                    now to create new locations and deals for your customers.
 
-        %h3
-          =link_to "Log in", "http://www.bcake.co/signin"
-          now to create new locations
-      .panel-footer
-        %h5
-        = link_to "Cake", "www.bcake.co", class: "blue underline text-center"
+
+        .footer
+          %table{:width => "100%"}
+            %tr
+              %td.aligncenter.content-block
+                %a{:href => "www.cake.com"} Cake
+    %td
+
+  -#
+  -# .col-md-8.col-md-offset-2.mt50{style: "width: 50%; margin: 20px auto"}
+  -#   .panel.panel-success
+  -#     .panel-heading{style: "background-color: yellowgreen !important"}
+  -#       .panel-title
+  -#         %h2.text-center Thanks for signing up with Cake.
+  -#     .panel-body.pr30.pl30
+  -#       %h3.text-center Keep an eye out for updates in the coming weeks.
+  -#       %p
+  -#         We'll be releasing new tools very soon.
+  -#
+  -#       %h3
+  -#         =link_to "Log in", "http://www.bcake.co/signin"
+  -#         now to create new locations
+  -#     .panel-footer
+  -#       %h5
+  -#       = link_to "Cake", "www.bcake.co", class: "blue underline text-center"
