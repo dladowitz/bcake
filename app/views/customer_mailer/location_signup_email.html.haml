@@ -14,56 +14,42 @@
                   %td
                     .signup-header.navy-bg
                       %h1{:style => "color: white"}= "Thanks for signing up with #{@location.name}"
+                %tr
+                  %td.content-block
+                    %h3 Keep an eye out for this months deal.
+                %tr
+                  %td.content-block
+                    Each month we'll be sending you something free from a place you already love.
+                %tr
+                  %td.content-block
+                    In the mean time check out these other great locations
+                .nearby-locations
+                  - @locations.each do |location|
+                    %tr
+                      %td
+                        = link_to location_path(location), :class => "business-wrapper" do
+                          .business{:style => "background: url(#{location.img_url}); background-size: cover;"}
+                            .backing-layer
+                              %span.name= location.name
+                              %span.distance.green 4.2mi
+                              .signup= link_to "signup", location_path(location), class: "btn btn-xs btn-primary"
 
-                    -# .widget-head-color-box.navy-bg
-                    -#   .m-b-n-md
-                    -#     %h2.font-bold{:style => "color: white"}= "Thanks for signing up with #{@location.name}"
-                    -# %img.img-responsive{:src => "img/header.jpg"}/
-                %tr
-                  %td.content-block
-                    %h3 Welcom in basic email template
-                %tr
-                  %td.content-block
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
-                %tr
-                  %td.content-block
-                    We may need to send you critical information about our service and it is important that we have an accurate email address.
-                %tr
-                  %td.content-block.aligncenter
-                    %a.btn-primary{:href => "#"} Confirm email address
+
+        -# = link_to location_path(location), :class => "business-wrapper" do
+        -#   .business{:style => "background: url(#{location.img_url}); background-size: cover;"}
+        -#     .backing-layer
+        -#       .col-sm-6
+        -#         .name= location.name
+        -#         .distance.green 4.2mi
+        -#       .col-sm-6
+        -#         %h1 Hello
+        -#         = link_to "signup", location_path(location)
+
+
+
         .footer
           %table{:width => "100%"}
             %tr
               %td.aligncenter.content-block
-                Follow
-                %a{:href => "#"} @Company
-                on Twitter.
+                %a{:href => "www.cake.com"} Cake
     %td
-
--#
--# .container
--#
--#   -#Css classes are not being loaded. Premailer gem is supposed to handle
--#   .col-md-8.col-md-offset-2.mt50{style: "width: 50%; margin: 20px auto"}
--#     .panel.panel-success
--#       .panel-heading{style: "background-color: yellowgreen !important"}
--#         .panel-title
--#           %h2.text-center= "Thanks for signing up with #{@location.name}."
--#       .panel-body.pr30.pl30
--#         %h3.text-center Keep an eye out for this month's deal in the next few days.
--#         %p Each month we'll be sending you something free from a place you already love.
--#
--#
--#         %h3 In the mean time check out these other great stores you might like.
--#         .nearby-locations
--#           - @locations.each do |location|
--#             = link_to location_path(location) do
--#               .business{:style => "background: url(#{location.img_url}); background-size: cover;"}
--#                 .backing-layer
--#                   .name= location.name
--#                   .distance.green 4.2mi
--#
--#       .panel-footer
--#         .yellow TEST
--#         %h5
--#         = link_to "Cake", "www.bcake.co", class: "blue underline text-center"

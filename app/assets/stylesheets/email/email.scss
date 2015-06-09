@@ -12,9 +12,45 @@
   color: white;
 }
 
+
+/******** location signup ********/
 .signup-header {
   padding: 10px 30px 30px 30px;
   text-align: center;
   color: white !important;
   border-radius: 5px
+}
+
+
+// signup_confirmation page
+a {
+  text-decoration: none !important;
+}
+
+.business {
+  // height: 150px;
+  border-top: 5px solid #1ab394;
+
+  .backing-layer {
+    padding: 30px;
+    background: rgba(0, 0, 0, .75);
+
+    .name {
+      color: white;
+      font-size: 25px;
+    }
+
+    .distance {
+      font-size: 15px;
+      margin-left: 10px;
+    }
+
+    .signup {
+      font-size: 12px !important;
+      margin-top: 5px;
+    }
+  }
+
+
+
 }
