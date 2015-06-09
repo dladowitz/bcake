@@ -21,6 +21,7 @@ class Customer < ActiveRecord::Base
       self.locations << location
       # TODO send asyncronously
       CustomerMailer.location_signup_email(self, location).deliver_now
+      return locations
     end
   end
 end

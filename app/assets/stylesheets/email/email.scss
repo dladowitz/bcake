@@ -1,0 +1,20 @@
+/*
+ * This is a manifest file that'll be compiled into email.css, which will include all the files
+ * listed below.
+ *
+ *= require_self
+ //= require email/email_template_inspina.css
+ */
+
+/******** colors ********/
+.navy-bg {
+  background-color: #1ab394;
+  color: white;
+}
+
+.signup-header {
+  padding: 10px 30px 30px 30px;
+  text-align: center;
+  color: white !important;
+  border-radius: 5px
+}
