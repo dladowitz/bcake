@@ -27,12 +27,12 @@
                   - @locations.each do |location|
                     %tr
                       %td
-                        = link_to location_path(location), :class => "business-wrapper" do
+                        = link_to location_url(location), :class => "business-wrapper" do
                           .business{:style => "background: url(#{location.img_url}); background-size: cover;"}
                             .backing-layer
                               %span.name= location.name
                               %span.distance.green 4.2mi
-                              .signup= link_to "signup", location_path(location), class: "btn btn-xs btn-primary"
+                              .signup= link_to "signup", location_url(location), class: "btn btn-xs btn-primary"
 
         .footer
           %table{:width => "100%"}

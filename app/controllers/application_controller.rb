@@ -9,11 +9,11 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     if current_user
       flash[:danger] = "You are not authorized for this page. All your bases are belong to us."
-      puts "---------- You are not authorized for this page. All your bases are belong to us. ----------"
+      puts "---------- You are not authorized for this page. All your bases are belong to us. ----------" unless Rails.env == "test"
       redirect_to user_path(current_user)
     else
       flash[:danger] = "You must be logged for this page. All your bases are belong to us."
-      puts "---------- You must be logged for this page. All your bases are belong to us. ----------"
+      puts "---------- You must be logged for this page. All your bases are belong to us. ----------" unless Rails.env == "test"
 
       redirect_to root_path
     end
@@ -21,9 +21,11 @@ class ApplicationController < ActionController::Base
   end
 
   # TODO need to suppress puts statements in specs
+  # http://stackoverflow.com/questions/15430551/suppress-console-output-during-rspec-tests
+
   rescue_from ActiveRecord::RecordNotFound do |exception|
     flash[:danger] = "That's not a thing in the database"
-    puts "---------- That's not a thing in the database ----------"
+    puts "---------- That's not a thing in the database ----------" unless Rails.env == "test"
     redirect_to root_path
   end
 

@@ -15,4 +15,8 @@ class Location < ActiveRecord::Base
 
   has_and_belongs_to_many :customers
   belongs_to :user
+
+  #currently locations only have one deal.
+  #This may need to change to has_many. Otherwise when a deal changes a user will get the new deal instead of the one emailed to them. 
+  has_one :deal
 end

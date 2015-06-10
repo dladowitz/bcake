@@ -23,7 +23,6 @@ Then  /they can create a new location/ do
   expect(page).to have_content "Nice. Location Created Successfully."
 end
 
-
 Then  /they can view that location/ do
   visit user_locations_path
   click_link "Sugar Cafe"

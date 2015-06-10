@@ -25,11 +25,14 @@ Rails.application.routes.draw do
     member do
       post :signup
     end
+
+    resources :deals, only: [:new]
   end
 
   # resources :customers, only: [:create]
   resources :sessions, only: [:new, :create, :destroy]
   resources :password_resets, only: [:create]
+
 
 
 
