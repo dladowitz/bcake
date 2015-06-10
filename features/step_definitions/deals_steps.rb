@@ -4,7 +4,7 @@ And   /they view a location/ do
 end
 
 Then  /they create a deal/ do
-  click_link "Create Deal"
+  click_link "Create First Deal"
   fill_in "Birthday Deal", with: "Free Panini"
   fill_in "Monthly Deal", with: "50% off a single item"
   click_button "Create Deal"

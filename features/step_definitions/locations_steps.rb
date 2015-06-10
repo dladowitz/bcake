@@ -26,5 +26,5 @@ end
 Then  /they can view that location/ do
   visit user_locations_path
   click_link "Sugar Cafe"
-  expect(page).to have_content "Location: Sugar Cafe"
+  expect(page).to have_content "Sugar Cafe"
 end
