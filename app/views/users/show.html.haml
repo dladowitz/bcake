@@ -67,19 +67,19 @@
           Current Deals
           %i.fa.fa-spoon
         .row
-          .col-xs-6
+          .col-xs-5
             %h3.ml20 Birthday Deal
-          .col-xs-6.text-right
-            %h2.font-bold
+          .col-xs-7.text-right
+            %h4
               -if @deal
                 = @deal.birthday_deal
               - else
                 No Deals Yet
         .row
-          .col-xs-6
+          .col-xs-5
             %h3.ml20 Monthly Deal
-          .col-xs-6.text-right
-            %h2.font-bold
+          .col-xs-7.text-right
+            %h4
               - if @deal
                 = @deal.monthly_deal
               - else
