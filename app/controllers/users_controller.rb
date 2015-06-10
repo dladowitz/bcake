@@ -33,6 +33,8 @@ class UsersController < ApplicationController
     @page_name = "Dashboard"
 
     if @user
+      @location = @user.locations.first
+      @deal = @location.deal if @location
       render :show
     else
       redirect_to root_path

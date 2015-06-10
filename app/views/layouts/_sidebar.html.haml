@@ -16,16 +16,20 @@
                 %a{:href => "login.html"} Logout
         .logo-element
           IN+
-      %li.active
+      %li{class: ("active" if current_page?(user_path(current_user)))}
         %a{:href => "#{user_path(current_user)}"}
           %i.fa.fa-dashboard.fa-2x
           %span.nav-label My Dashboard
-      %li.active
+      %li{class: ("active" if current_page?(user_locations_path))}
         %a{:href => "#{user_locations_path}"}
           %i.fa.fa-map-marker.fa-2x
           %span.nav-label Locations
+      %li{class: ("active" if current_page?(edit_user_path(current_user)))}
+        %a{:href => "#{edit_user_path(current_user)}"}
+          %i.fa.fa-user.fa-2x
+          %span.nav-label Profile
       - if current_user.admin?
-        %li
+        %li{class: ("active" if current_page?(users_path))}
           %a{:href => "#{users_path}"}
-            %i.fa.fa-user.fa-2x
+            %i.fa.fa-users.fa-2x
             %span.nav-label Users

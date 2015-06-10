@@ -1,23 +1,86 @@
 .row
-  .col-lg-10
-    .ibox.float-e-margins
-      .ibox-title
-        %h3
-          Here is all your relevant info
-      .ibox-content
+  .col-sm-4
+    .widget.navy-bg.no-padding
+      .p-m
+        %h1.m-xs
+          Deals Redeemed
+          %i.fa.fa-birthday-cake
         .row
-          = link_to "Update Account", edit_user_path(@user), class: "btn btn-primary ml10"
+          .col-xs-9
+            %h3.ml20 This Week
+          .col-xs-3.text-right
+            %h2.font-bold 11
+        .row
+          .col-xs-9
+            %h3.ml20 This Month
+          .col-xs-3.text-right
+            %h2.font-bold 51
+        .row
+          .col-xs-9
+            %h3.ml20 All Time
+          .col-xs-3.text-right
+            %h2.font-bold 201
 
-          .posts.m-t-lg
-            .no-posts.m-l-lg
-              = image_tag "http://www.eonline.com/eol_images/Entire_Site/201478/rs_500x281-140808102730-cutest-cat-gifs-please.gif",
-                class: "col-sm-6 mt30"
+  .col-sm-4
+    .widget.blue-bg.no-padding
+      .p-m
+        %h1.m-xs
+          Customers Signed Up
+          %i.fa.fa-envelope
+        .row
+          .col-xs-9
+            %h3.ml20 This Week
+          .col-xs-3.text-right
+            %h2.font-bold 25
+        .row
+          .col-xs-9
+            %h3.ml20 This Month
+          .col-xs-3.text-right
+            %h2.font-bold 103
+        .row
+          .col-xs-9
+            %h3.ml20 All Time
+          .col-xs-3.text-right
+            %h2.font-bold 378
+.row
+  .col-sm-4
+    .widget.yellow-bg.no-padding
+      .p-m
+        %h1.m-xs
+          Locations
+          %i.fa.fa-home
+        .row
+          .col-xs-9
+            %h3.ml20
+              - if @location
+                = link_to @location.name, user_location_path(@location), class: "white underline"
+              - else
+                No Locations Yet
+                %p
+                  .label
+                    = link_to "Create One", new_location_path
 
-              = image_tag "http://31.media.tumblr.com/323247f4fdf2cc14831bb7980bb432af/tumblr_njy5ihohLL1re3kvuo1_400.gif",
-                class: "col-sm-6 mt30"
-
-              = image_tag "http://1-ps.googleusercontent.com/hk/pEsVsjur9-mHhASR14jwUkOv66/www.catgifpage.com/gifs/267.gif.pagespeed.ce.pyTSoDgHCYAZN8v1pVku.gif",
-                class: "col-sm-6 mt30"
-
-              = image_tag "http://www.myhappyoffice.com/wp-content/uploads/2012/03/cute-happy-funny-giggle-cat-5.gif",
-                class: "col-sm-6 mt30"
+  .col-sm-4
+    .widget.red-bg.no-padding
+      .p-m
+        %h1.m-xs
+          Current Deals
+          %i.fa.fa-spoon
+        .row
+          .col-xs-6
+            %h3.ml20 Birthday Deal
+          .col-xs-6.text-right
+            %h2.font-bold
+              -if @deal
+                = @deal.birthday_deal
+              - else
+                No Deals Yet
+        .row
+          .col-xs-6
+            %h3.ml20 Monthly Deal
+          .col-xs-6.text-right
+            %h2.font-bold
+              - if @deal
+                = @deal.monthly_deal
+              - else
+                No Deals Yet

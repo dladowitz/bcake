@@ -35,12 +35,17 @@
   color: green;
 }
 
+.white {
+  color: white;
+}
+
 
 /******** Text Decoration ********/
 
 .underline {
   text-decoration: underline;
 }
+
 
 
 /******** Margins ********/

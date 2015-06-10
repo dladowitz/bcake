@@ -1,9 +1,9 @@
-%h1 New Location
-
 .col-sm-6
-  = simple_form_for @location do |f|
-    = f.input :name
-    = f.input :img_url
-    = f.submit class: "btn btn-primary"
-
-    -# f.submit "Add drink", :class => "create"
+  .box.float-e-margins
+    .ibox-title
+      %h2 Create New Location
+    .ibox-content
+      = simple_form_for @location do |f|
+        = f.input :name
+        = f.input :img_url
+        = f.submit class: "btn btn-primary"
