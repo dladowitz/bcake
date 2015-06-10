@@ -1,11 +1,37 @@
 .col-sm-6
-  %h1= "Location: #{@location.name}"
-  = image_tag @location.img_url
-.col-sm-6
-  %h2 Your Current Deals
-  = link_to "Create Deal", new_location_deal_path(@location), class: "btn btn-primary"
+  .ibox.float-e-margins
+    .ibox-title
+      %h2 Location
 
-  -# - if @deal
-  -#   = link_to "Update Deal", update_location_deal_path(@location, @deal), class: "btn btn-primary"
-  -# - else
-  -#   = link_to "Create Deal", new_location_deal_path(@location), class: "btn btn-primary"
+    .ibox-content
+      %h2= @location.name
+      %p= image_tag @location.img_url
+
+
+.col-sm-6
+  - if @deal
+    .col-sm-6
+      .ibox.float-e-margins
+        .ibox-title
+          %h2 Current Deal
+        .ibox-content
+          %h4
+            %strong Birthday Deal:
+            = @deal.birthday_deal
+
+          %h4
+            %strong Monthly Deal:
+            = @deal.monthly_deal
+
+          %p.mt40
+            = link_to "Update Deal", edit_location_deal_path(@location, @deal), class: "btn btn-primary"
+  - else
+    .col-sm-6
+      .ibox.float-e-margins
+        .ibox-title
+          %h2 Current Deal
+        .ibox-content
+          .no-deals
+            This location doesn't have any deals
+          %p.mt40
+            = link_to "Create First Deal", new_location_deal_path(@location), class: "btn btn-primary"

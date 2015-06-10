@@ -91,4 +91,10 @@ describe DealsController do
     end
 
   end
+
+  skip "GET edit" do
+  end
+
+  skip "PATCH update" do
+  end
 end

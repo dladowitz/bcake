@@ -48,6 +48,7 @@ class LocationsController < ApplicationController
 
   def user_location
     @location = Location.find params[:id]
+    @deal = @location.deal
     authorize! :user_location, @location
   end
 
