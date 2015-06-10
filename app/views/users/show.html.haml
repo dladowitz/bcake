@@ -74,7 +74,11 @@
               -if @deal
                 = @deal.birthday_deal
               - else
-                No Deals Yet
+                - if @location
+                  .label
+                    = link_to "Create a deal", new_location_deal_path(@location)
+                - else
+                  No Deals Yet
         .row
           .col-xs-5
             %h3.ml20 Monthly Deal
@@ -83,4 +87,8 @@
               - if @deal
                 = @deal.monthly_deal
               - else
-                No Deals Yet
+                - if @location
+                  .label
+                    = link_to "Create a deal", new_location_deal_path(@location)
+                - else
+                  No Deals Yet
