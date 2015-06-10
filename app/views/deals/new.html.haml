@@ -1,1 +1,10 @@
-Lets make a deal.
+.col-sm-6
+  .ibox.float-e-margins
+    .ibox-title
+      %h5 Create a new Deal
+    .ibox-content
+      %p
+        = simple_form_for @deal, url: location_deals_path(@location) do |f|
+          = f.input :birthday_deal, label: "Birthday Deal"
+          = f.input :monthly_deal, label: "Monthly Deal"
+          = f.submit class: "btn btn-primary"

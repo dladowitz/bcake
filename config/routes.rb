@@ -26,7 +26,7 @@ Rails.application.routes.draw do
       post :signup
     end
 
-    resources :deals, only: [:new]
+    resources :deals, only: [:new, :create]
   end
 
   # resources :customers, only: [:create]
