@@ -1,11 +1,9 @@
 %h1 New Location
 
 .col-sm-6
-  = form_for @location do |f|
-    .form-group
-      = f.label :name
-      = f.text_field :name, class: "form-control"
-    .form-group
-      = f.label :img_url, "Image URL"
-      = f.text_field :img_url, class: "form-control"
-    = f.submit class: "btn btn-success"
+  = simple_form_for @location do |f|
+    = f.input :name
+    = f.input :img_url
+    = f.submit class: "btn btn-primary"
+
+    -# f.submit "Add drink", :class => "create"
