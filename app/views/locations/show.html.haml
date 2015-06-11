@@ -20,7 +20,7 @@
           = form_tag signup_location_path do
             .form-group
               = label_tag :birthday
-              = date_field_tag :birthday, nil, class: "form-control input-lg"
+              = date_field_tag :birthday, nil, class: "form-control input-lg birthday"
 
             .form-group
               = label_tag :email
@@ -28,9 +28,9 @@
 
             = submit_tag "Sign Up", class: "btn btn-success sign-up"
 
-:javascript
-  var textbox = document.getElementById('dob')
-  textbox.onfocus = function (event) {
-    this.type = 'date';
-    rsthis.focus();
-  }
+// :javascript
+//   var textbox = document.getElementById('dob')
+//   textbox.onfocus = function (event) {
+//     this.type = 'date';
+//     rsthis.focus();
+//   }
