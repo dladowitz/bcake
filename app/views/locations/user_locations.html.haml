@@ -13,5 +13,5 @@
             %th Image
           - @locations.each do |location|
             %tr
-              %td= link_to location.name.capitalize, user_location_path(location)
+              %td= link_to location.name.titleize, user_location_path(location)
               %td.col-sm-1.thumbnail= image_tag location.img_url
