@@ -20,7 +20,7 @@
           = form_tag signup_location_path do
             .form-group
               = label_tag :birthday
-              = date_field_tag :birthday, nil, class: "form-control input-lg birthday"
+              = date_field_tag :birthday, nil, id: "birthday", placeholder: "10/31/1990", class: "form-control input-lg birthday"
 
             .form-group
               = label_tag :email
@@ -28,9 +28,12 @@
 
             = submit_tag "Sign Up", class: "btn btn-success sign-up"
 
+-# Trying to get birthday box to be a text input first than change to date input on focus
 // :javascript
-//   var textbox = document.getElementById('dob')
+//   console.log("Running JS")
+//   var textbox = document.getElementById('birthday')
 //   textbox.onfocus = function (event) {
+//     console.log("working")
 //     this.type = 'date';
-//     rsthis.focus();
+//     this.focus();
 //   }
