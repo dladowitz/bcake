@@ -1,1 +1,8 @@
---- {}
+---
+deal1:
+  id: 1
+  birthday_deal: Free Panini
+  monthly_deal: Free Coffee
+  location_id: 25
+  created_at: 2015-06-11 21:00:30.463674000 Z
+  updated_at: 2015-06-11 21:00:30.463674000 Z

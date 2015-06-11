@@ -1,94 +1,95 @@
-.row
-  .col-sm-4
-    .widget.navy-bg.no-padding
-      .p-m
-        %h1.m-xs
-          Deals Redeemed
-          %i.fa.fa-birthday-cake
-        .row
-          .col-xs-9
-            %h3.ml20 This Week
-          .col-xs-3.text-right
-            %h2.font-bold 11
-        .row
-          .col-xs-9
-            %h3.ml20 This Month
-          .col-xs-3.text-right
-            %h2.font-bold 51
-        .row
-          .col-xs-9
-            %h3.ml20 All Time
-          .col-xs-3.text-right
-            %h2.font-bold 201
+.container
+  .row
+    .col-sm-4
+      .widget.navy-bg.no-padding
+        .p-m
+          %h1.m-xs
+            Deals Redeemed
+            %i.fa.fa-birthday-cake
+          .row
+            .col-xs-9
+              %h3.ml20 This Week
+            .col-xs-3.text-right
+              %h2.font-bold 11
+          .row
+            .col-xs-9
+              %h3.ml20 This Month
+            .col-xs-3.text-right
+              %h2.font-bold 51
+          .row
+            .col-xs-9
+              %h3.ml20 All Time
+            .col-xs-3.text-right
+              %h2.font-bold 201
 
-  .col-sm-4
-    .widget.blue-bg.no-padding
-      .p-m
-        %h1.m-xs
-          Customers Signed Up
-          %i.fa.fa-envelope
-        .row
-          .col-xs-9
-            %h3.ml20 This Week
-          .col-xs-3.text-right
-            %h2.font-bold 25
-        .row
-          .col-xs-9
-            %h3.ml20 This Month
-          .col-xs-3.text-right
-            %h2.font-bold 103
-        .row
-          .col-xs-9
-            %h3.ml20 All Time
-          .col-xs-3.text-right
-            %h2.font-bold 378
-.row
-  .col-sm-4
-    .widget.yellow-bg.no-padding
-      .p-m
-        %h1.m-xs
-          Locations
-          %i.fa.fa-home
-        .row
-          .col-xs-9
-            %h3.ml20
-              - if @location
-                = link_to @location.name, user_location_path(@location), class: "white underline"
-              - else
-                No Locations Yet
-                %p
-                  .label
-                    = link_to "Create One", new_location_path
+    .col-sm-4
+      .widget.blue-bg.no-padding
+        .p-m
+          %h1.m-xs
+            Customers Signed Up
+            %i.fa.fa-envelope
+          .row
+            .col-xs-9
+              %h3.ml20 This Week
+            .col-xs-3.text-right
+              %h2.font-bold 25
+          .row
+            .col-xs-9
+              %h3.ml20 This Month
+            .col-xs-3.text-right
+              %h2.font-bold 103
+          .row
+            .col-xs-9
+              %h3.ml20 All Time
+            .col-xs-3.text-right
+              %h2.font-bold 378
+  .row
+    .col-sm-4
+      .widget.yellow-bg.no-padding
+        .p-m
+          %h1.m-xs
+            Locations
+            %i.fa.fa-home
+          .row
+            .col-xs-9
+              %h3.ml20
+                - if @location
+                  = link_to @location.name, user_location_path(@location), class: "white underline"
+                - else
+                  No Locations Yet
+                  %p
+                    .label
+                      = link_to "Create One", new_location_path
 
-  .col-sm-4
-    .widget.red-bg.no-padding
-      .p-m
-        %h1.m-xs
-          Current Deals
-          %i.fa.fa-spoon
-        .row
-          .col-xs-5
-            %h3.ml20 Birthday Deal
-          .col-xs-7.text-right
-            %h4
-              -if @deal
-                = @deal.birthday_deal
-              - else
-                - if @location
-                  .label
-                    = link_to "Create a deal", new_location_deal_path(@location)
+    .col-sm-4
+      .widget.red-bg.no-padding
+        .p-m
+          %h1.m-xs
+            Current Deals
+            %i.fa.fa-spoon
+          .row
+            .col-xs-5
+              %h3.ml20 Birthday Deal
+            .col-xs-7.text-right
+              %h4
+                -if @deal
+                  = @deal.birthday_deal
                 - else
-                  No Deals Yet
-        .row
-          .col-xs-5
-            %h3.ml20 Monthly Deal
-          .col-xs-7.text-right
-            %h4
-              - if @deal
-                = @deal.monthly_deal
-              - else
-                - if @location
-                  .label
-                    = link_to "Create a deal", new_location_deal_path(@location)
+                  - if @location
+                    .label
+                      = link_to "Create a deal", new_location_deal_path(@location)
+                  - else
+                    No Deals Yet
+          .row
+            .col-xs-5
+              %h3.ml20 Monthly Deal
+            .col-xs-7.text-right
+              %h4
+                - if @deal
+                  = @deal.monthly_deal
                 - else
-                  No Deals Yet
+                  - if @location
+                    .label
+                      = link_to "Create a deal", new_location_deal_path(@location)
+                  - else
+                    No Deals Yet

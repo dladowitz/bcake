@@ -4,6 +4,6 @@ FactoryGirl.define do
   factory :deal do
     association :location
     birthday_deal "Free Panini"
-    monthly_deal "MyString"
+    monthly_deal "Free Iced Coffee"
   end
 end

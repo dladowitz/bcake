@@ -2,6 +2,7 @@ class LocationsController < ApplicationController
   layout "landing_page/landing_layout", only: [:index, :show, :signup]
   # before_filter :url_rerouter, only: :show
   skip_before_filter :require_login, only: [:index, :show, :signup]
+  # TODO create before_filter :set_location
 
   def index
     @locations = Location.all
@@ -9,6 +10,7 @@ class LocationsController < ApplicationController
 
   def show
     @location  = Location.find params[:id]
+    @deal = @location.deal
   end
 
   def new
@@ -54,7 +56,7 @@ class LocationsController < ApplicationController
 
   private
 
-  def url_rerouter
+  # def url_rerouter
     # Because we need to use a url shortener for locations
     # all routes must be prepended with /c/ to prevent locations#show from matching.
     # This is a workaround to all the urls to be used without /c/
@@ -62,10 +64,10 @@ class LocationsController < ApplicationController
     # This doesn't work with resources that have :id's however. Like users/3
 
     # prepend '/c/' if the :id is not a number
-    if params[:id].to_i == 0
-      redirect_to "/c/#{params[:id]}"
-    end
-  end
+  #   if params[:id].to_i == 0
+  #     redirect_to "/c/#{params[:id]}"
+  #   end
+  # end
 
   def location_params
     params.require(:location).permit(:name, :img_url)

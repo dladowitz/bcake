@@ -8,9 +8,12 @@
         %h1.section-title
           %span= @location.name
         %p.subheading
-          wants to give you something
+          wants to give you
           %span.green
-            free
+            - if @deal
+              = @deal.birthday_deal.downcase
+            - else
+              something free
           on your birthday
 
         .signup-form

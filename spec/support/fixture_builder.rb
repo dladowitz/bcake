@@ -18,6 +18,9 @@ FixtureBuilder.configure do |fbuilder|
     @yoyos   = create(:location, name: "Yo Yo's",            user_id: @owner.id, img_url: "http://www.fillmurray.com/500/300")
     @brioche = create(:location, name: "Brioche Bakery",     user_id: @owner.id, img_url: "http://www.fillmurray.com/500/300")
     @flora   = create(:location, name: "Cafe Flora",         user_id: @owner.id, img_url: "http://www.fillmurray.com/500/300")
+
+    #deals
+    @deal1 = create(:deal, location_id: @jackson.id, birthday_deal: "Free Panini", monthly_deal: "Free Coffee")
   end
 end
 
