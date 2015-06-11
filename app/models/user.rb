@@ -34,7 +34,6 @@ class User < ActiveRecord::Base
 
   def admin_change
     if self.admin_changed?
-
       unless User.current_user.id == 1 #needed to allow first user to be made admin in console. Maye just make a method to set the first user as admin
         errors.add(:admin, "state can only be changed by current admin") unless User.current_user.admin?
       end
@@ -50,7 +49,8 @@ class User < ActiveRecord::Base
 
   # Not sure how Thread works here, but a guy on the interweb seems to thing its ok:
   # http://clearcove.ca/2008/08/recipe-make-request-environment-available-to-models-in-rails/
-  # Used to access current_user in the admin_change method on the model
+  # Used to access current_user in the admin_change method on the model.
+  # Note #set_current_user_on_user_model is sets User.current_user in the ApplicationController
   def self.current_user
     Thread.current[:user]
   end

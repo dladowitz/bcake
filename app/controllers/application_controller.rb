@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   # most features require a user to be logged on.
   before_filter :require_login
 
+  before_filter :set_current_user_on_user_model
+
   rescue_from CanCan::AccessDenied do |exception|
     if current_user
       flash[:danger] = "You are not authorized for this page. All your bases are belong to us."
@@ -39,5 +41,14 @@ class ApplicationController < ActionController::Base
       flash[:danger] = "You must be logged in to do that."
       redirect_to root_path and return
     end
+  end
+
+  private
+
+  def set_current_user_on_user_model
+    # Used so current_user is available on the User model. Specifically for updating admin accounts.
+    # Maybe not the best way to do this. See User model
+    # http://clearcove.ca/2008/08/recipe-make-request-environment-available-to-models-in-rails/
+    User.current_user = current_user
   end
 end
