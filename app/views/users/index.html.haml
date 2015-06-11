@@ -1,9 +1,16 @@
 .row
-  .col-lg-8
+  .col-sm-8
     .ibox.float-e-margins
+      .ibox-title
+        %h2 Users
       .ibox-content
-        .row
-          %ul
-            - @users.each do |user|
-              %li
-                %h2= link_to user.first_name.capitalize, user_path(user)
+        %table.table.table-hover.fsize-20
+          %tr
+            %th Name
+            %th Profile
+            %th Admin
+          - @users.each do |user|
+            %tr
+              %td= link_to user.first_name.capitalize, user_path(user)
+              %td= link_to "edit", edit_user_path(user)
+              %td= user.admin ? "true" : nil

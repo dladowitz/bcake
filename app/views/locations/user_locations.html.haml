@@ -1,5 +1,17 @@
-= link_to "Create New Location", new_location_path, class: "btn btn-success"
+-# = link_to "Create New Location", new_location_path, class: "btn btn-success"
 
-%h1 Hello, here are the locations you own
-- @locations.each do |location|
-  %li= link_to location.name, user_location_path(location)
+.row
+  .col-sm-8
+    .ibox.float-e-margins
+      .ibox-title
+        %span.pull-right= link_to "Create New Location", new_location_path, class: "fsize-15 btn btn-success btn-xs"
+        %h2 You're Locations
+      .ibox-content
+        %table.table.table-hover.fsize-20
+          %tr
+            %th Name
+            %th Image
+          - @locations.each do |location|
+            %tr
+              %td= link_to location.name.capitalize, user_location_path(location)
+              %td.col-sm-1.thumbnail= image_tag location.img_url

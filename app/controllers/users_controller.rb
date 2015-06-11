@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   skip_before_filter :require_login, only: [:new, :create]
 
   def index
-    @page_name = "Find someone new to follow"
+    # @page_name = "Users"
     @users = User.all
   end
 
