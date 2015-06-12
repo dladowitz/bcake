@@ -21,7 +21,8 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 
-//Bootstrap is overwriting style.css when called from the gem. Maybe find a way to have style called last
+// Bootstrap is overwriting main_template_inspona.css when called from the gem. Maybe find a way to have style called last.
+// So using bootstrap in the requie list above
 //  @import "bootstrap";
 
 @import "font-awesome";
@@ -29,20 +30,13 @@
 
 //////// Styles limited to the main app \\\\\\\\\\
 
-.green {
-  color: green;
-}
 
-.ibox-content {
-  .post {
-    width: 90%;
-  }
-}
-
-
-.post {
-  background: #DFDFE2;
+// user_location show page
+.ibox-content.location {
+  overflow: auto;
   padding: 20px;
-  width: 45%;
-  border-radius: 5px;
+
+  img {
+    width: 100%;
+  }
 }

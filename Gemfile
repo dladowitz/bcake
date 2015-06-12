@@ -2,9 +2,16 @@ source 'https://rubygems.org'
 ruby '2.1.2'
 gem 'rails', '4.2.0'
 
+
 gem 'bcrypt'
-gem 'bootstrap-sass', '~> 3.2.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
+
+# Currently bootstrap gem is not being usedis being used for styles
+# Sytles are being generated inside of templates and from the assests folder
+# See stylesheet manifest files for more info
+# bootstrap-sass gem is used for sprockets though. 
+gem 'bootstrap-sass', '~> 3.2.0'
+
 gem 'breadcrumbs_on_rails'
 gem 'cancancan', '~> 1.9'
 gem 'coffee-rails', '~> 4.0.0'

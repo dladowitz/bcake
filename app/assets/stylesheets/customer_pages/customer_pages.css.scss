@@ -1,0 +1,135 @@
+/*
+ * Manifest for customer pages.
+ *
+ *= require_self
+ //= require templates/template_start
+ //= require ../shared/shared
+ */
+
+// template_start.css has overidden bootstrap classes.
+// Uncomment next line if need original bootstrap classes.
+// @import "bootstrap";
+
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets"; // not sure this is needed
+
+@import "font-awesome";
+
+//////// Add-on styles for the customer page \\\\\\\\\\
+
+// phones
+@media only screen
+  and (min-device-width: 100px)
+  and (max-device-width: 736px) {
+
+  .img-layer {
+    height: 1800px;
+  }
+
+
+  .opaque-layer {
+    background-color: rgba(225, 225, 225, .65);
+    border-radius: 5px;
+    min-height: 300px !important;
+    text-align: center;
+    padding: 40px;
+    position: relative;
+    top: 100px;
+  }
+  .main_content {
+    color: #312212;
+
+    h1 {
+      font-size: 100px;
+    }
+
+    h2 {
+      font-size: 50px;
+    }
+  }
+
+  ul.locations {
+    padding-left: 0px;
+  }
+
+  li.location {
+    list-style-type: none;
+    font-size: 45px;
+    a {
+      color: blue;
+    }
+  }
+
+  // landing page
+  .view-locations {
+    width: 500px;
+    font-size: 55px !important;
+    margin: 50px;
+    padding: 30px !important;
+  }
+
+  // location page
+  .signup-form {
+    margin: auto;
+    margin-top: 90px;
+    font-size: 50px;
+
+    input {
+      height: 100px;
+      font-size: 50px;
+      line-height: 80px !important;
+      margin: 10px auto 50px auto;
+      padding-left: 20px;
+      width: 700px;
+
+    }
+
+    .birthday {
+      // width: 100%;
+    }
+
+    .sign-up {
+      width: 700px;
+    }
+  }
+
+  .subheading {
+    font-size: 50px
+  }
+
+  // signup_confirmation page
+  .opaque-layer-confirmation {
+    background-color: rgba(225, 225, 225, .65);
+    border-radius: 5px;
+    margin-top: 50px;
+    min-height: 300px !important;
+    text-align: center;
+    padding: 40px;
+  }
+
+  .thanks {
+    font-size: 65px;
+  }
+
+  .other-locations {
+    font-size: 40px;
+  }
+
+  .business {
+    height: 300px;
+    border-top: 10px solid green;
+
+    .name {
+      color: white;
+      font-size: 100px;
+    }
+    .distance {
+      font-size: 60px;
+    }
+  }
+
+  .backing-layer {
+    padding: 30px;
+    background: rgba(0, 0, 0, .75)
+  }
+}
