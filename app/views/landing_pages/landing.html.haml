@@ -205,7 +205,7 @@
           %span Contact Us
         %p Want more info? Send us a message and well get right back to you.
         .main-action
-          %form{:role => "form", :action => "/contact"}
+          = form_tag contact_path do 
             .row
               .col-sm-6
                 .form-group
@@ -222,6 +222,7 @@
                   %label.sr-only Message
                   %textarea.form-control{:name => "contact[message]", :placeholder => "Message", :rows => "6", :style => "height: 100px"}
             %button.btn.btn-default{:type => "submit"} Send message
+
   %footer#footer.site-footer
     .container
       #sidebar-footer-1

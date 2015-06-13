@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   # custom routes
   get    :landing,     to: "landing_pages#landing",      as: :landing
-  get    :contact,     to: "landing_pages#contact",      as: :contact
+  post   :contact,     to: "landing_pages#contact",      as: :contact
   get    :signin,      to: "sessions#new",               as: :signin
   get    :signup,      to: "users#new",                  as: :signup
 
