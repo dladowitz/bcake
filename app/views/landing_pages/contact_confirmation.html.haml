@@ -1,0 +1,65 @@
+#page
+  %header#header.site-header
+    %nav#navbar.site-navbar.navbar.navbar-static-top{:role => "navigation"}
+      .container
+        .navbar-header
+          %button.navbar-toggle{"data-target" => "#navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %i.fa.fa-bars
+          %h1.navbar-brand
+            %i.fa.fa-birthday-cake
+            %a{:href => "index.html"} Cake
+        #navbar-collapse-1.collapse.navbar-collapse
+          %ul#navigation.nav.navbar-nav.navbar-right
+            %li.active
+              %a.current{:href => "/"} Home
+            %li
+              %a{:href => "/#features"} How It Works
+            %li
+              %a{:href => "/#testimonials"} Testimonials
+            %li
+              %a{:href => "/#pricing"} Pricing
+            %li
+              %a.external{:href => "/signup"} Sign Up
+            %li
+              %a.external{:href => "/signin"} Sign In
+  %main#main.site-main
+
+    %section#features.section.section-center.section-hilite.section-features
+      .container.pb300
+        %h2.section-title
+          %span Thanks. We'll have someone get back to you very soon.
+
+
+  %footer#footer.site-footer
+    .container
+      #sidebar-footer-1
+        .row
+          %aside.widget.col-md-3.col-sm-6
+
+          %aside.widget.col-md-3.col-sm-6
+            %h5.widget-title Contact
+            .textwidget
+              .adr
+                .street-address 855 Front St.
+                = succeed "," do
+                  %span.locality San Francisco
+                = succeed "," do
+                  %abbr.region{:title => "New York"} CA
+                = succeed "," do
+                  %span.postal-code 94111
+                %span.country-name
+              %div
+                Phone:
+                %span.tel +1.408.666.4411
+          %aside.widget.col-md-3.col-sm-6
+            %h5.widget-title About Us
+            %p
+              Cake was born out of a need for a small bakery to reach more customer while still focusing on their food.
+              %a{:href => "#"} Read more
+          %aside.widget.col-md-3.col-sm-6
+
+      .copyright
+        %p
+          © 2015 Cake, Inc.
+          %br/

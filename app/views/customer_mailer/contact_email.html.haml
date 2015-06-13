@@ -1,0 +1,35 @@
+%head
+  = stylesheet_link_tag  'email/email', media: 'all'
+
+%table.body-wrap
+  %tr
+    %td
+    %td.container{:width => "600"}
+      .content
+        %table.main{:cellpadding => "0", :cellspacing => "0", :width => "100%"}
+          %tr
+            %td.content-wrap
+              %table{:cellpadding => "0", :cellspacing => "0"}
+                %tr
+                  %td
+                    .signup-header.navy-bg
+                      %h1{:style => "color: white"}= "Someone wants to hear back from us"
+                %tr
+                  %td.content-block
+                    %h3= "Name: #{@name}"
+                %tr
+                  %td.content-block
+                    = "Subject: #{@subject}"
+                %tr
+                  %td.content-block
+                    Email:
+                    = link_to @email, "mailto:#{@email}"
+                %tr
+                  %td.content-block
+                    = "Message: #{@message}"
+        .footer
+          %table{:width => "100%"}
+            %tr
+              %td.aligncenter.content-block
+                %a{:href => "www.cake.com"} Cake
+    %td

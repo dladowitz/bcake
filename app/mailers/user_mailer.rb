@@ -6,7 +6,7 @@ class UserMailer < ApplicationMailer
 
   def signup_email(user)
     @user = user
-    attachments.inline['logo.png'] = File.read('app/assets/images/cake-logo.png')
+    # attachments.inline['logo.png'] = File.read('app/assets/images/cake-logo.png')
 
     mail(to: @user.email, subject: "Cake - Signup")
   end
@@ -14,7 +14,7 @@ class UserMailer < ApplicationMailer
   def request_password(user, token)
     @user = user
     @reset_link = RESET_LINK_BASE + token
-    attachments.inline['logo.png'] = File.read('app/assets/images/cake-logo.png')
+    # attachments.inline['logo.png'] = File.read('app/assets/images/cake-logo.png')
 
     mail(to: @user.email, subject: "Cake - Password Reset")
   end
