@@ -10,4 +10,6 @@
 // There are a number of JS files in this folder from the start bootstrap template.
 // Probably not being used right now but needed for full template functionaily
 
+
+//= require ../google_analytics.js.coffee
 //= require_tree .
