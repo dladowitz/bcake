@@ -17,6 +17,6 @@ class CustomerMailer < ApplicationMailer
     @subject = form_options[:subject]
     @message = form_options[:message]
 
-    mail(to: "david@tradecrafted.com", subject: "Cake: Customer Request for Info")
+    mail(to: "david@tradecrafted.com", from: "\"Cake Admin\" <admin@bcake.co>", subject: "Cake: Customer Request for Info")
   end
 end

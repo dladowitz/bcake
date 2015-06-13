@@ -1,3 +1,3 @@
 class ApplicationMailer < ActionMailer::Base
-  default(from: "welcome@bcake.co")
+  default(from: "\"Cake\" <no-reply@bcake.co>")
 end
