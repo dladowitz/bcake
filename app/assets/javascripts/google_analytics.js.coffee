@@ -49,6 +49,7 @@ class @GoogleAnalytics
 
   @analyticsId: ->
     # your google analytics ID(s) here...
+    ######## NOTE See intructions for pushing to heroku above. Won't work without #####
     'UA-64050876-1'
 
 GoogleAnalytics.load()
