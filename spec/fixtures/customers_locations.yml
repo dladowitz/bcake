@@ -1,1 +1,4 @@
---- {}
+---
+customers_locations_001:
+  customer_id: 6
+  location_id: 53

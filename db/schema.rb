@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150610021835) do
+ActiveRecord::Schema.define(version: 20150614022025) do
 
   create_table "customers", force: :cascade do |t|
     t.string   "email"
@@ -60,6 +60,15 @@ ActiveRecord::Schema.define(version: 20150610021835) do
     t.boolean  "admin"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "vouchers", force: :cascade do |t|
+    t.string   "token"
+    t.integer  "customer_id"
+    t.integer  "location_id"
+    t.datetime "redeemed"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

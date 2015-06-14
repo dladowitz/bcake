@@ -13,14 +13,22 @@ FixtureBuilder.configure do |fbuilder|
     @owner     = create(:user, first_name: "Brandon",  last_name: "David",    email: "brandon@tradecraft.com", admin: false )
     @owner2    = create(:user, first_name: "Justin",   last_name: "Smith",    email: "justing@tradecraft.com", admin: false )
 
-    # locations
+    # locations owned by @owner1
     @jackson = create(:location, name: "Jackson Place Cafe", user_id: @owner.id, img_url: "http://www.fillmurray.com/500/300")
     @yoyos   = create(:location, name: "Yo Yo's",            user_id: @owner.id, img_url: "http://www.fillmurray.com/500/300")
     @brioche = create(:location, name: "Brioche Bakery",     user_id: @owner.id, img_url: "http://www.fillmurray.com/500/300")
     @flora   = create(:location, name: "Cafe Flora",         user_id: @owner.id, img_url: "http://www.fillmurray.com/500/300")
 
-    #deals
+    # deals
     @deal1 = create(:deal, location_id: @jackson.id, birthday_deal: "Free Panini", monthly_deal: "Free Coffee")
+
+    # customer signed up for a location
+    @customer1 = create(:customer, email: "amy@tradecrafted.com", birthday: "2001-10-25")
+    @customer1.locations << @jackson
+
+    #vouchers
+    # @voucher1 = create(:voucher, customer_id: @customer1.id, location_id: @jackson.id)
+
   end
 end
 
