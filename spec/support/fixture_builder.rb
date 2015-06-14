@@ -23,11 +23,11 @@ FixtureBuilder.configure do |fbuilder|
     @deal1 = create(:deal, location_id: @jackson.id, birthday_deal: "Free Panini", monthly_deal: "Free Coffee")
 
     # customer signed up for a location
-    @customer1 = create(:customer, email: "amy@tradecrafted.com", birthday: "2001-10-25")
-    @customer1.locations << @jackson
+    # @customer1 = create(:customer, email: "amy@tradecrafted.com", birthday: "2001-10-25")
+    # @customer1.locations << @jackson
 
     #vouchers
-    # @voucher1 = create(:voucher, customer_id: @customer1.id, location_id: @jackson.id)
+    # @voucher1 = create(:voucher)
 
   end
 end

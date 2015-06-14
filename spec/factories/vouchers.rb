@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :voucher do
-    token "abc123xyz"
+    # token "abc123xyz"
     association :location
     association :customer
     redeemed false
