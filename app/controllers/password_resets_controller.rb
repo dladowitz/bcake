@@ -1,6 +1,6 @@
 class PasswordResetsController < ApplicationController
   layout "landing_page/landing_layout"
-  skip_before_filter :require_login
+  skip_before_action :require_login
 
   def request_password
     @password_reset = PasswordReset.new

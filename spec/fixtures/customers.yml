@@ -1,1 +1,7 @@
---- {}
+---
+customers_001:
+  id: 11
+  email: russ@tradecraft.com
+  birthday: 1983-12-25
+  created_at: 2015-06-14 22:59:49.384240000 Z
+  updated_at: 2015-06-14 22:59:49.384240000 Z

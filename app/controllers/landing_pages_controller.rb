@@ -1,5 +1,5 @@
 class LandingPagesController < ApplicationController
-  skip_before_filter :require_login
+  skip_before_action :require_login
   layout "landing_page/landing_layout"
 
   def landing

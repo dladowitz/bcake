@@ -16,12 +16,17 @@ Rails.application.routes.draw do
   get    "/reset_password/:token", to: "password_resets#reset_password",   as: :reset_password
   patch  "/reset_password/:token", to: "password_resets#update",           as: :password_reset
 
+  get "/vouchers/:token", to: "vouchers#show", as: :voucher
+
   # maybe roll these into their own controller instead of using locations
-  get "/user/locations",    to: "locations#user_locations", as: :user_locations
-  get "/user/locations/:id", to: 'locations#user_location', as: :user_location
+  get "/user/locations",     to: "locations#user_locations", as: :user_locations
+  get "/user/locations/:id", to: 'locations#user_location',  as: :user_location
 
   # resource routes
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :password_resets, only: [:create]
+
   resources :locations, only: [:index, :show, :new, :create] do
     member do
       post :signup
@@ -29,10 +34,6 @@ Rails.application.routes.draw do
 
     resources :deals, only: [:new, :create, :edit, :update]
   end
-
-  # resources :customers, only: [:create]
-  resources :sessions, only: [:new, :create, :destroy]
-  resources :password_resets, only: [:create]
 
 
 

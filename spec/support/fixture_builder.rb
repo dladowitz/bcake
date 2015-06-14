@@ -27,7 +27,7 @@ FixtureBuilder.configure do |fbuilder|
     # @customer1.locations << @jackson
 
     #vouchers
-    # @voucher1 = create(:voucher)
+    @voucher1 = create(:voucher)
 
   end
 end

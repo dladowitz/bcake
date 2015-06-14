@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
-  skip_before_filter :require_login, only: [:new, :create]
+  skip_before_action :require_login, only: [:new, :create]
 
   def index
     # @page_name = "Users"

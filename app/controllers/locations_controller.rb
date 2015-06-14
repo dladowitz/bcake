@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   layout "customer_pages/customer_layout", only: [:index, :show, :signup]
-  skip_before_filter :require_login, only: [:index, :show, :signup]
+  skip_before_action :require_login, only: [:index, :show, :signup]
   # TODO create before_filter :set_location
 
   def index
