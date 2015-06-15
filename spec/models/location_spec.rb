@@ -5,6 +5,7 @@ describe Location do
   it { should have_and_belong_to_many :customers }
   it { should belong_to :user }
   it { should have_one :deal }
+  it { should have_many :vouchers }
 
   it "has a valid factory" do
     location = create :location, name: "Cafe Flora", img_url: "http://cafeflora.com"

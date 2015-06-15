@@ -7,9 +7,6 @@
     = csrf_meta_tags
 
   %body
-    - flash.each do |name, message| # look at rendering flash partial instead. Might have been a problem or something
-      %strong
-        %div{:class => "alert alert-#{name}", :role => "alert"}
-          = message
+
 
     = yield

@@ -4,7 +4,15 @@ class VouchersController < ApplicationController
   before_action :set_voucher
 
   def show
+    unless @voucher
+      render text: 'Sorry, token not found', content_type: 'text/plain', status: 404
+    end
+  end
 
+  def redeem
+    unless @voucher.redeemed
+      @voucher.update_attributes(redeemed: Time.now)
+    end
   end
 
   private

@@ -1,1 +1,10 @@
-Hello I'm a voucher
+%h1= "Good for a #{@voucher.location.deal.birthday_deal}" #law of demeter violation. Fix.
+
+%h2
+  Please click when at
+  %span.green= @voucher.location.name
+
+%h2
+  Voucher is good for only 12 hours after pressing the redeem button
+
+= link_to "Redeem Now", redeem_voucher_path(@voucher.token), class: "btn btn-lg btn-primary"

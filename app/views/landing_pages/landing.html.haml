@@ -24,6 +24,12 @@
             %li
               %a.external{:href => "/signin"} Sign In
   %main#main.site-main
+
+    - flash.each do |name, message| # When the flash is at the top of the page it gets hidden by the navbar. Need to force it to show
+      %strong
+        %div{:class => "alert alert-#{name}", :role => "alert"}
+          = message
+
     %section#carousel-1.carousel.slide.section-slide{"data-ride" => "carousel"}
       .carousel-inner
         .item.active{:style => "background: url(assets/background/coffeeshop2-fulldark.jpg);"}
@@ -205,7 +211,7 @@
           %span Contact Us
         %p Want more info? Send us a message and well get right back to you.
         .main-action
-          = form_tag contact_path do 
+          = form_tag contact_path do
             .row
               .col-sm-6
                 .form-group
