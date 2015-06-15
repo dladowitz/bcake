@@ -325,6 +325,22 @@
   font-size: 55px
 }
 
+.fsize-70 {
+  font-size: 70px
+}
+
+.fsize-80 {
+  font-size: 80px
+}
+
+.fsize-90 {
+  font-size: 90px
+}
+
+.fsize-100 {
+  font-size: 100px
+}
+
 /*widths*/
 .width-10 {
   width: 10px;

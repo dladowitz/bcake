@@ -1,10 +1,14 @@
-%h1= "Good for a #{@voucher.location.deal.birthday_deal}" #law of demeter violation. Fix.
+.container.img-layer.col-xs-12{:style => "background: url(https://farm1.staticflickr.com/138/319913793_71cec49d33_z.jpg); background-size: cover;"}
+  .row
+    .opaque-layer.col-xs-12.col-md-8.col-md-offset-2
+      .main_content.col-xs-10.col-xs-offset-1
+        %p.fsize-100.green= @voucher.location.deal.birthday_deal # law of demeter violation. Fix.
 
-%h2
-  Please click when at
-  %span.green= @voucher.location.name
+        %p.fsize-50.mt50
+          Please redeem when at
+          %span.green= @voucher.location.name
 
-%h2
-  Voucher is good for only 12 hours after pressing the redeem button
+        %p.fsize-50.mt50
+          Voucher is good for only 12 hours after pressing the redeem button
 
-= link_to "Redeem Now", redeem_voucher_path(@voucher.token), class: "btn btn-lg btn-primary"
+        %p.mt50= link_to "Redeem Now", redeem_voucher_path(@voucher.token), class: "fsize-50 btn btn-lg btn-success"

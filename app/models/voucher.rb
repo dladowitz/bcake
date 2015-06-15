@@ -19,7 +19,7 @@ class Voucher < ActiveRecord::Base
   belongs_to :location
   belongs_to :customer
 
-  before_validation :set_token
+  before_validation :set_token, if: :new_record?
 
   EXPIRATION_PERIOD = 30.days
   REDEMPTION_PERIOD = 12.hours
