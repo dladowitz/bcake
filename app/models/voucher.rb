@@ -36,6 +36,14 @@ class Voucher < ActiveRecord::Base
     end
   end
 
+  # TODO write spec
+  # will only set redemtion the first time. 
+  def set_as_redeemed
+    unless self.redeemed
+      self.update_attributes(redeemed: Time.now)
+    end
+  end
+
   # The loop keeps running if the token already exists
   def set_token
     self.token = loop do

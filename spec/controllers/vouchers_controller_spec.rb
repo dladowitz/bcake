@@ -8,12 +8,39 @@ describe VouchersController do
     context "with a valid token" do
       before { subject }
 
-      it "returns the voucher show template" do
-        expect(response).to render_template :show
+      context "when the voucher has not been redeemed yet" do
+        it "returns the voucher show template" do
+          expect(response).to render_template :show
+        end
+
+        it "finds a voucher in the database" do
+          expect(assigns(:voucher)).to eq voucher
+        end
       end
 
-      it "finds a voucher in the database" do
-        expect(assigns(:voucher)).to eq voucher
+      context "when the voucher has already been redeemed" do
+        context "when the redemtion period has not elasped" do
+          before { voucher.update_attributes(redeemed: 2.hours.ago) }
+          subject { get :show, token: voucher.token }
+          it "does not change the redemtion time" do
+            expect{ subject }.not_to change{ voucher.reload.redeemed }
+          end
+
+          it "renders the show template" do
+            subject
+            expect(response).to render_template :show
+          end
+        end
+
+        context "when the redemtion period has already elapsed" do
+          before { voucher.update_attributes(redeemed: 4.days.ago) }
+
+          it "renders the no_good template" do
+            # Running subject in the spec. Problem with ordering
+            get :show, token: voucher.token
+            expect(response).to render_template :no_good
+          end
+        end
       end
     end
 
@@ -43,10 +70,26 @@ describe VouchersController do
       end
 
       context "when the voucher has already been redeemed" do
-        before { voucher.update_attributes(redeemed: 1.hour.ago) }
+        context "when the redemtion period has not elasped" do
+          before { voucher.update_attributes(redeemed: 1.hour.ago) }
 
-        it "does not change the redemtion time" do
-          expect{ subject }.not_to change{ voucher.reload.redeemed }
+          it "does not change the redemtion time" do
+            expect{ subject }.not_to change{ voucher.reload.redeemed }
+          end
+
+          it "renders the redeem template" do
+            subject
+            expect(response).to render_template :good
+          end
+        end
+
+        context "when the redemtion period has already elapsed" do
+          before { voucher.update_attributes(redeemed: 4.days.ago) }
+
+          it "renders the no_good template" do
+            subject
+            expect(response).to render_template :no_good
+          end
         end
       end
     end

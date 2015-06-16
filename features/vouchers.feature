@@ -3,7 +3,8 @@ Feature: Vouchers
 
   Scenario: A customer can redeem a voucher
     Given Customer has a voucher link
-    Then  they can press the redeem button the first time
+    And   they visit the link for the first time
+    And   they can press the redeem button
     Then  they succeed in redeeming
-    And   they click the link again after the expiration time
-    Then  they cannot redeem again
+    Then  they revisit the voucher link a second time
+    Then  they revisit the link after the redemtion window

@@ -1,22 +1,25 @@
 Given /Customer has a voucher link/ do
-  voucher = vouchers(:voucher1)
-  visit voucher_path(voucher.token)
+  @voucher = vouchers(:voucher1)
 end
 
+And   /they visit the link for the first time/ do
+  visit voucher_path(@voucher.token)
+end
 
-Then  /they can press the redeem button the first time/ do
+And   /they can press the redeem button/ do
   click_link "Redeem Now"
 end
-
 
 Then  /they succeed in redeeming/ do
   expect(page).to have_content "Show this at the register"
 end
 
-
-And   /they click the link again after the expiration time/ do
+Then  /they revisit the voucher link a second time/ do
+  @voucher.update_attributes(redeemed: 2.days.ago)
+  visit voucher_path(@voucher.token)
+  expect(page).not_to have_content "Redeem Now"
 end
 
-
-Then  /they cannot redeem again/ do
+Then  /they revisit the link after the redemtion window/ do
+  expect(page).to have_content "Sorry"
 end
