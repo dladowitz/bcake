@@ -3,19 +3,26 @@ class VouchersController < ApplicationController
   skip_before_action :require_login
   before_action :set_voucher
 
-  # Both show and redeem are pretty similiar. Maybe DRY them up
+  # Probably should refactor. Double nesting doesn't look so good.
+  # Also show and redeem look pretty similiar
   def show
-    if @voucher.within_redemtion_period?
-      @voucher.set_as_redeemed
-      render :show
+    if @voucher.redeemed
+      if @voucher.within_redemtion_period?
+        @voucher.set_as_redeemed
+        @redemtion_expiration = @voucher.redeemed + Voucher::REDEMPTION_PERIOD
+        render :good
+      else
+        render :no_good
+      end
     else
-      render :no_good
+      render :show
     end
   end
 
   def redeem
     if @voucher.within_redemtion_period?
       @voucher.set_as_redeemed
+      @redemtion_expiration = @voucher.redeemed + Voucher::REDEMPTION_PERIOD
       render :good
     else
       render :no_good

@@ -5,9 +5,10 @@
         %p.fsize-100 Great the deal is all yours
         %p.fsize-50.mt50 Show this at the register
 
-        %p.fsize-50
+        %p.fsize-70
           Deal:
           %span.green= @voucher.location.deal.birthday_deal
         %h3.mt50= @voucher.token
+        %h5.green= "Good until #{@redemtion_expiration.strftime("%b %e - %l%P")}"
 
 -# https://farm6.staticflickr.com/5131/5464499376_d61aae17b0_z.jpg

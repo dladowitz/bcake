@@ -7,7 +7,7 @@ And   /they visit the link for the first time/ do
 end
 
 And   /they can press the redeem button/ do
-  click_link "Redeem Now"
+  click_button "Redeem Now"
 end
 
 Then  /they succeed in redeeming/ do

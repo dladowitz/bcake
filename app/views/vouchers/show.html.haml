@@ -11,4 +11,6 @@
         %p.fsize-50.mt50
           Voucher is good for only 12 hours after pressing the redeem button
 
-        %p.mt50= link_to "Redeem Now", redeem_voucher_path(@voucher.token), class: "fsize-50 btn btn-lg btn-success"
+        %p.mt50
+          = form_tag redeem_voucher_path(@voucher.token) do
+            = submit_tag "Redeem Now", class: "fsize-50 btn btn-lg btn-success"
