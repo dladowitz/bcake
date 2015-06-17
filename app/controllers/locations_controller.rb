@@ -10,6 +10,7 @@ class LocationsController < ApplicationController
   def show
     @location  = Location.find params[:id]
     @deal = @location.deal
+    @customer = Customer.new
   end
 
   def new
@@ -38,8 +39,13 @@ class LocationsController < ApplicationController
       customer.birthday = params[:birthday]
     end
 
-    # add location to customer
-    @customer.add_location(@location) ? (render :signup_confirmation) : (render :signup_error)
+    if @customer.save
+      @customer.add_location(@location) ? (render :signup_confirmation) : (render :signup_error)
+      render :signup_confirmation
+    else
+      @deal = @location.deal
+      render :show
+    end
   end
 
   # Not sure if user_locations and user_location should be their own controller.
