@@ -29,22 +29,31 @@ class LocationsController < ApplicationController
   end
 
 
+  # This action is getting kinda hectic
   def signup
     # TODO create a method to intelligently pull nearby locations
     @locations = Location.all.limit 5
     @location = Location.find params[:id]
 
     # if customer is already in db find them, otherwise create a new record
-    @customer  = Customer.find_or_create_by(email: params[:email]) do |customer|
-      customer.birthday = params[:birthday]
+    @customer  = Customer.find_or_create_by(email: params[:customer][:email]) do |customer|
+      begin
+        customer.birthday = Date.strptime(params[:customer][:birthday], '%m/%d/%Y') #converts month/day/year to day/month/year
+      rescue ArgumentError => e
+        #  should surface invalid date to the view somehow
+        # raise e
+      end
     end
 
     if @customer.save
-      @customer.add_location(@location) ? (render :signup_confirmation) : (render :signup_error)
-      render :signup_confirmation
+      if @customer.add_location(@location)
+        render :signup_confirmation
+      else
+        render :signup_error
+      end
     else
       @deal = @location.deal
-      render :show
+      render :show and return
     end
   end
 

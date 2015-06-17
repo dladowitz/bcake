@@ -14,16 +14,24 @@
           on your birthday
 
         .signup-form
-          = form_tag signup_location_path do
-            .form-group
-              = label_tag :birthday
-              = date_field_tag :birthday, nil, id: "birthday", placeholder: "10/31/1990", class: "form-control input-lg birthday"
+          = simple_form_for @customer, url: signup_location_path do |f|
+            -# = f.input :birthday
+            = f.input :birthday, label: "Birthday", as: :string, start_year: Time.now.year - 90, end_year: Time.now.year - 8, order: [:month, :day, :year], placeholder: "01/25/1990"
+            = f.input :email, placeholder: "tony.start@gmail.com"
+            = f.submit class: "btn btn-success sign-up"
 
-            .form-group
-              = label_tag :email
-              = email_field_tag :email, nil, class: "form-control", placeholder: "tony.stark@gmail.com"
+        -# .signup-form
+        -#   = form_tag signup_location_path do
+        -#     .form-group
+        -#       = label_tag :birthday
+        -#       = date_field_tag :birthday, nil, id: "birthday", placeholder: "10/31/1990", class: "form-control input-lg birthday"
+        -#
+        -#     .form-group
+        -#       = label_tag :email
+        -#       = email_field_tag :email, nil, class: "form-control", placeholder: "tony.stark@gmail.com"
+        -#
+        -#     = submit_tag "Sign Up", class: "btn btn-success sign-up"
 
-            = submit_tag "Sign Up", class: "btn btn-success sign-up"
 
 -# Trying to get birthday box to be a text input first than change to date input on focus
 // :javascript

@@ -10,7 +10,8 @@
 #
 
 class Customer < ActiveRecord::Base
-  validates :email, :birthday, presence: true
+  validates :email, presence: true
+  validates_presence_of :birthday, :message => "is invalid"
 
   has_and_belongs_to_many :locations
   has_many :vouchers
