@@ -38,7 +38,7 @@ class LocationsController < ApplicationController
     # if customer is already in db find them, otherwise create a new record
     @customer  = Customer.find_or_create_by(email: params[:customer][:email]) do |customer|
       begin
-        customer.birthday = Date.strptime(params[:customer][:birthday], '%m/%d/%Y') #converts month/day/year to day/month/year
+        customer.birthday = Date.strptime(params[:customer][:birthday], '%m-%d-%Y') #converts month/day/year to day/month/year
       rescue ArgumentError => e
         #  should surface invalid date to the view somehow
         # raise e
