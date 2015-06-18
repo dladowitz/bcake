@@ -7,6 +7,9 @@
 
         %p.fsize-70
           Deal:
-          %span.green= @voucher.location.deal.birthday_deal
-        %h3.mt50= @voucher.token
-        %h5.green= "Good until #{@redemtion_expiration.strftime("%b %e - %l%P")}"
+          - if @voucher.customer.birthday.month != Date.today.month
+            %span.green= @voucher.location.deal.birthday_deal
+          -else
+            %span.green= @voucher.location.deal.monthly_deal
+        %h5.mt50= @voucher.token
+        %h3.green= "Good until #{@redemtion_expiration.strftime("%b %e - %l%P")}"
