@@ -120,6 +120,10 @@
   margin-top: 50px;
 }
 
+.mt60 {
+  margin-top: 60px;
+}
+
 .mt100 {
   margin-top: 100px;
 }
@@ -323,6 +327,10 @@
 
 .fsize-55 {
   font-size: 55px
+}
+
+.fsize-60 {
+  font-size: 60px
 }
 
 .fsize-70 {

@@ -2,12 +2,19 @@
   .row
     .opaque-layer.col-xs-12.col-md-8.col-md-offset-2
       .main_content.col-xs-10.col-xs-offset-1
-        %p.fsize-100 Great the deal is all yours
+        - if @voucher.customer.birthday.month == Date.today.month
+          %p.fsize-70
+            HAPPY BIRTHDAY!
+          %p.fsize-70
+            The treat is all yours
+        - else
+          %p.fsize-70
+            The treat is all yours
+
         %p.fsize-50.mt50 Show this at the register
 
         %p.fsize-70
-          Deal:
-          - if @voucher.customer.birthday.month != Date.today.month
+          - if @voucher.customer.birthday.month == Date.today.month
             %span.green= @voucher.location.deal.birthday_deal
           -else
             %span.green= @voucher.location.deal.monthly_deal

@@ -13,19 +13,22 @@
                 %tr
                   %td
                     .signup-header.navy-bg
-                      %h1{:style => "color: white"}= "#{@location.name} has a deal for you"
+                      %h1{:style => "color: white"}
+                        %span.fsize-40= @location.name
+                        %br
+                        %span.fsize-40 has a treat for you!
                 %tr
                   %td.content-block
-                    %h2 We miss you. Come back and visit.
-                    %h3
-                      This months deal:
+                    .fsize-25.mt20
+                      This month's treat:
+                    .fsize-25
                       - if @is_birthday
-                        = @voucher.location.deal.birthday_deal
+                        = @voucher.location.deal.birthday_deal.capitalize
                       - else
-                        = @voucher.location.deal.monthly_deal
+                        = @voucher.location.deal.monthly_deal.capitalize
                 %tr
                   %td.content-block
-                    = link_to "Click here to view and redeem deal", "http://www.bcake.co/vouchers/#{@voucher.token}", class: "fsize-20"
+                    = link_to "Click here to claim your treat", "http://www.bcake.co/vouchers/#{@voucher.token}", class: "fsize-20 fweight-700"
                 -# %tr
                 -#   %td.content-block
                 -#     In the mean time check out these other great locations

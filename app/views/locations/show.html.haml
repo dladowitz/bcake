@@ -5,13 +5,19 @@
         %h1.section-title
           %span= @location.name
         %p.subheading
-          wants to give you a
+          wants to treat you on your
+          %span.green.fsize-70 BIRTHDAY
+          %br
+          %span.fsize-30 (and every other month)
+          %br
+          %br
+          This month's gift:
+          %br
           %span.green
             - if @deal
               = @deal.birthday_deal.downcase
             - else
               something free
-          on your birthday
 
         .signup-form
           = simple_form_for @customer, url: signup_location_path do |f|
