@@ -1,0 +1,48 @@
+%head
+  = stylesheet_link_tag  'email/email', media: 'all'
+
+%table.body-wrap
+  %tr
+    %td
+    %td.container{:width => "600"}
+      .content
+        %table.main{:cellpadding => "0", :cellspacing => "0", :width => "100%"}
+          %tr
+            %td.content-wrap
+              %table{:cellpadding => "0", :cellspacing => "0"}
+                %tr
+                  %td
+                    .signup-header.navy-bg
+                      %h1{:style => "color: white"}= "#{@location.name} has a deal for you"
+                %tr
+                  %td.content-block
+                    %h2 We miss you. Come back and visit.
+                    %h3
+                      This months deal:
+                      - if @is_birthday
+                        = @voucher.location.deal.birthday_deal
+                      - else
+                        = @voucher.location.deal.monthly_deal
+                %tr
+                  %td.content-block
+                    = link_to "Click here to view and redeem deal", "http://www.bcake.co/vouchers/#{@voucher.token}", class: "fsize-20"
+                -# %tr
+                -#   %td.content-block
+                -#     In the mean time check out these other great locations
+                -# .nearby-locations
+                -#   - @locations.each do |location|
+                -#     %tr
+                -#       %td
+                -#         = link_to location_url(location), :class => "business-wrapper" do
+                -#           .business{:style => "background: url(#{location.img_url}); background-size: cover;"}
+                -#             .backing-layer
+                -#               %span.name= location.name
+                -#               %span.distance.green 4.2mi
+                -#               .signup= link_to "signup", location_url(location), class: "btn btn-xs btn-primary"
+
+        .footer
+          %table{:width => "100%"}
+            %tr
+              %td.aligncenter.content-block
+                %a{:href => "www.cake.com"} Cake
+    %td
