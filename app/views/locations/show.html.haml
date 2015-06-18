@@ -18,7 +18,7 @@
             -# = f.input :birthday
             = f.input :birthday, label: "Birthday", as: :string, start_year: Time.now.year - 90, end_year: Time.now.year - 8, order: [:month, :day, :year], placeholder: "01-25-1990"
             = f.input :email, placeholder: "tony.start@gmail.com"
-            = f.submit class: "btn btn-success sign-up"
+            = f.submit value: "Sign Up", class: "btn btn-success sign-up"
 
         -# .signup-form
         -#   = form_tag signup_location_path do
