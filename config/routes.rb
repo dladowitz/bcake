@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root to: "landing_pages#landing"
 
   # matches only when :id is a number. allows all others to pass through.
-  get "/:id", to: "locations#show", constraints: { id: /\d+/}
+  # get "/:id", to: "locations#show", constraints: { id: /\d+/ }
+  get "/:id", to: "locations#show", constraints: { id: Location.all.pluck(:id) }
+  # get "/:code", to: "locations#show", constraints: lambda { binding.pry }
 
   # custom routes
   get    :landing,     to: "landing_pages#landing",      as: :landing
