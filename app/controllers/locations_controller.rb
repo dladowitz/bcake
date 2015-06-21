@@ -8,7 +8,8 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @location  = Location.find params[:id]
+    @location = set_location
+
     @deal = @location.deal
     @customer = Customer.new
   end
@@ -33,7 +34,7 @@ class LocationsController < ApplicationController
   def signup
     # TODO create a method to intelligently pull nearby locations
     @locations = Location.all.limit 5
-    @location = Location.find params[:id]
+    @location = set_location
 
     # if customer is already in db find them, otherwise create a new record
     @customer  = Customer.find_or_create_by(email: params[:customer][:email]) do |customer|
@@ -72,5 +73,16 @@ class LocationsController < ApplicationController
 
   def location_params
     params.require(:location).permit(:name, :img_url)
+  end
+
+  def set_location
+    # location may be found by :id or :short_name
+    @location = Location.find_by_short_name params[:id]
+
+    unless @location
+      @location = Location.find params[:id]
+    end
+
+    return @location
   end
 end

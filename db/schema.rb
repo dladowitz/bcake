@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150614022025) do
+ActiveRecord::Schema.define(version: 20150621014913) do
 
   create_table "customers", force: :cascade do |t|
     t.string   "email"
@@ -42,7 +42,10 @@ ActiveRecord::Schema.define(version: 20150614022025) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.string   "short_name"
   end
+
+  add_index "locations", ["short_name"], name: "index_locations_on_short_name"
 
   create_table "password_resets", force: :cascade do |t|
     t.integer  "user_id"

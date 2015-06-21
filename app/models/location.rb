@@ -9,6 +9,10 @@
 #  updated_at :datetime         not null
 #  user_id    :integer
 #
+# Indexes
+#
+#  index_locations_on_short_name  (short_name)
+#
 
 class Location < ActiveRecord::Base
   validates :name, presence: true

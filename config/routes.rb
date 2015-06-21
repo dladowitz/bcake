@@ -3,9 +3,12 @@ Rails.application.routes.draw do
   root to: "landing_pages#landing"
 
   # matches only when :id is a number. allows all others to pass through.
-  # get "/:id", to: "locations#show", constraints: { id: /\d+/ }
-  get "/:id", to: "locations#show", constraints: { id: Location.all.pluck(:id) }
-  # get "/:code", to: "locations#show", constraints: lambda { binding.pry }
+  get "/:id", to: "locations#show", constraints: { id: /\d+/ }
+
+  # matches only when :id is a number. allows all others to pass through.
+  get "/:id", to: "locations#show", constraints: lambda { |req|
+    Location.all.pluck(:short_name).include?(req.env["action_dispatch.request.path_parameters"][:id])
+  }
 
   # custom routes
   get    :landing,     to: "landing_pages#landing",      as: :landing
