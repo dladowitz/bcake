@@ -21,7 +21,7 @@
                   %td.content-block
                     .fsize-25.mt20
                       This month's treat:
-                    .fsize-25
+                    .fsize-25.fweight-700
                       - if @is_birthday
                         = @voucher.location.deal.birthday_deal.capitalize
                       - else
@@ -29,19 +29,6 @@
                 %tr
                   %td.content-block
                     = link_to "Click here to claim your treat", "http://www.bcake.co/vouchers/#{@voucher.token}", class: "fsize-20 fweight-700"
-                -# %tr
-                -#   %td.content-block
-                -#     In the mean time check out these other great locations
-                -# .nearby-locations
-                -#   - @locations.each do |location|
-                -#     %tr
-                -#       %td
-                -#         = link_to location_url(location), :class => "business-wrapper" do
-                -#           .business{:style => "background: url(#{location.img_url}); background-size: cover;"}
-                -#             .backing-layer
-                -#               %span.name= location.name
-                -#               %span.distance.green 4.2mi
-                -#               .signup= link_to "signup", location_url(location), class: "btn btn-xs btn-primary"
 
         .footer
           %table{:width => "100%"}

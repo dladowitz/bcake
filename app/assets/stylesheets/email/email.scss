@@ -6,25 +6,12 @@
  //= require email/email_template_inspina.css
  */
 
-/******** colors ********/
-.navy-bg {
-  background-color: #1ab394;
-  color: white;
-}
-
-
-/******** location signup ********/
+/******** Misc ********/
 .signup-header {
   padding: 10px 30px 30px 30px;
   text-align: center;
   color: white !important;
   border-radius: 5px
-}
-
-
-// signup_confirmation page
-a {
-  text-decoration: none !important;
 }
 
 .business {
@@ -51,6 +38,16 @@ a {
       width: 85px;
     }
   }
+}
+
+/******** colors ********/
+.navy-bg {
+  background-color: #1ab394;
+  color: white;
+}
+
+.green {
+  color: green;
 }
 
 
