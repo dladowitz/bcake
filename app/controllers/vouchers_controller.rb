@@ -11,7 +11,7 @@ class VouchersController < ApplicationController
       render :show
     elsif @voucher.redeemed
       if @voucher.within_redemtion_period?
-        @redemtion_expiration = @voucher.redeemed.localtime + Voucher::REDEMPTION_PERIOD + 1.hour
+        @redemtion_expiration = @voucher.redeemed + Voucher::REDEMPTION_PERIOD + 1.hour
         render :good
       else
         render :no_good
@@ -24,7 +24,7 @@ class VouchersController < ApplicationController
   def redeem
     if @voucher.within_redemtion_period?
       @voucher.set_as_redeemed
-      @redemtion_expiration = @voucher.redeemed.localtime + Voucher::REDEMPTION_PERIOD + 1.hour
+      @redemtion_expiration = @voucher.redeemed + Voucher::REDEMPTION_PERIOD + 1.hour
       render :good
     else
       render :no_good
