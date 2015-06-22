@@ -2,11 +2,12 @@
 #
 # Table name: customers
 #
-#  id         :integer          not null, primary key
-#  email      :string
-#  birthday   :date
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id           :integer          not null, primary key
+#  email        :string
+#  birthday     :date
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  demo_account :boolean
 #
 
 class Customer < ActiveRecord::Base

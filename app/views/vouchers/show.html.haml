@@ -13,7 +13,7 @@
             %p.fsize-100.green= @voucher.location.deal.monthly_deal # law of demeter violation. Fix.
 
         %p.fsize-50.mt50
-          Treat is good for 24 hours after pressing the redeem button
+          = "Treat is good for #{Voucher::REDEMPTION_PERIOD / 3600} hours after pressing the redeem button"
 
         %p.mt50
           = form_tag redeem_voucher_path(@voucher.token) do

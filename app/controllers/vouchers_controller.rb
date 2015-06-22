@@ -4,12 +4,14 @@ class VouchersController < ApplicationController
   before_action :set_voucher
 
   # Probably should refactor. Double nesting doesn't look so good.
-  # Also show and redeem look pretty similiar
+  # Also show and redeem look pretty similiar.
   def show
-    if @voucher.redeemed
+    # DEMO_EMAILS allows interal salespeople to continue using the same voucher and keep pushing the 'redeem button' during demos
+    if @voucher.customer.demo_account
+      render :show
+    elsif @voucher.redeemed
       if @voucher.within_redemtion_period?
-        @voucher.set_as_redeemed
-        @redemtion_expiration = @voucher.redeemed + Voucher::REDEMPTION_PERIOD
+        @redemtion_expiration = @voucher.redeemed.localtime + Voucher::REDEMPTION_PERIOD + 1.hour
         render :good
       else
         render :no_good
@@ -22,7 +24,7 @@ class VouchersController < ApplicationController
   def redeem
     if @voucher.within_redemtion_period?
       @voucher.set_as_redeemed
-      @redemtion_expiration = @voucher.redeemed + Voucher::REDEMPTION_PERIOD
+      @redemtion_expiration = @voucher.redeemed.localtime + Voucher::REDEMPTION_PERIOD + 1.hour
       render :good
     else
       render :no_good

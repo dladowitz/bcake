@@ -22,7 +22,7 @@ class Voucher < ActiveRecord::Base
   before_validation :set_token, if: :new_record?
 
   EXPIRATION_PERIOD = 30.days
-  REDEMPTION_PERIOD = 12.hours
+  REDEMPTION_PERIOD = 24.hours
 
   def expired?
     (Time.now - created_at) >  EXPIRATION_PERIOD
@@ -37,9 +37,9 @@ class Voucher < ActiveRecord::Base
   end
 
   # TODO write spec
-  # will only set redemtion the first time. 
+  # will only set redemtion the first time.
   def set_as_redeemed
-    unless self.redeemed
+    if self.customer.demo_account || !self.redeemed
       self.update_attributes(redeemed: Time.now)
     end
   end
