@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 20150624180225) do
     t.datetime "redeemed"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.boolean  "sent"
+    t.datetime "sent"
   end
 
 end

@@ -1,9 +1,10 @@
 ---
 voucher1:
-  id: 7
-  token: TCSSEzEuf9ZBasFynCKbAg
-  customer_id: 16
-  location_id: 110
+  id: 8
+  token: ApENUHNfJRJ45BwpyVYq_Q
+  customer_id: 17
+  location_id: 114
   redeemed: 
-  created_at: 2015-06-24 18:12:39.613773000 Z
-  updated_at: 2015-06-24 18:12:39.613773000 Z
+  created_at: 2015-06-24 20:57:04.020888000 Z
+  updated_at: 2015-06-24 20:57:04.020888000 Z
+  sent: 

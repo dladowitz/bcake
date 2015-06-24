@@ -8,6 +8,6 @@ namespace :vouchers do
       VoucherMailer.voucher_email(voucher).deliver_now
     end
 
-    puts "=========== Sent #{unsent_vouchers.count} vouchers."
+    puts "=========== Sent #{unsent_vouchers.length} vouchers."
   end
 end

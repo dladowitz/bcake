@@ -1,28 +1,28 @@
 ---
 admin:
-  id: 81
+  id: 84
   first_name: David
   last_name: Ladowitz
   email: david@tradecraft.com
-  password_digest: "$2a$04$D69FbvT9c1Vs3oGNv3ejb.txBDA.XnGQO6aGUTvHS1AHAGH8pNxZe"
+  password_digest: "$2a$04$oU./dut22EAF42JZ7L2u4.u1SCW1g15ocCzqh9MD17huXuJeYkvLK"
   admin: true
-  created_at: 2015-06-24 18:12:39.515448000 Z
-  updated_at: 2015-06-24 18:12:39.515448000 Z
+  created_at: 2015-06-24 20:57:03.888699000 Z
+  updated_at: 2015-06-24 20:57:03.888699000 Z
 owner:
-  id: 82
+  id: 85
   first_name: Brandon
   last_name: David
   email: brandon@tradecraft.com
-  password_digest: "$2a$04$ikLVE82TROQqeQuF0PF7Dev3xasWWhpz8GY9cNP8QpoKkJUrEhYKW"
+  password_digest: "$2a$04$3wxqKXAW0JhtRrY6OR0QvOph0juSbSLQiLSzAaPkj8LzXsO/bgDTi"
   admin: false
-  created_at: 2015-06-24 18:12:39.529471000 Z
-  updated_at: 2015-06-24 18:12:39.529471000 Z
+  created_at: 2015-06-24 20:57:03.895183000 Z
+  updated_at: 2015-06-24 20:57:03.895183000 Z
 owner2:
-  id: 83
+  id: 86
   first_name: Justin
   last_name: Smith
   email: justing@tradecraft.com
-  password_digest: "$2a$04$DAWrRaFHQHf.Bu93DUv3zOWRJajIwEzCSgVfms1O8E77BzzdsL2sm"
+  password_digest: "$2a$04$BL3TxnOehF01WQUU0/OEceJn/z5UNu/fNwokvZbzZM662GcRD/8fW"
   admin: false
-  created_at: 2015-06-24 18:12:39.539775000 Z
-  updated_at: 2015-06-24 18:12:39.539775000 Z
+  created_at: 2015-06-24 20:57:03.905787000 Z
+  updated_at: 2015-06-24 20:57:03.905787000 Z

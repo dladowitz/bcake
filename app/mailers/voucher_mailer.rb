@@ -7,6 +7,6 @@ class VoucherMailer < ApplicationMailer
       @is_birthday = @voucher.customer.birthday.month == Date.today.month
 
       mail(to: @voucher.customer.email, subject: "Monthly Deal from #{@location.name}")
-      @voucher.update(sent: true)
+      @voucher.update(sent: DateTime.now)
     end
   end
