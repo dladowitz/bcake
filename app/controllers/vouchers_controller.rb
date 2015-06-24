@@ -11,7 +11,8 @@ class VouchersController < ApplicationController
       render :show
     elsif @voucher.redeemed
       if @voucher.within_redemtion_period?
-        @redemtion_expiration = @voucher.redeemed + Voucher::REDEMPTION_PERIOD + 1.hour
+        # Not sure why the time is 8hrs ahead on Heroku's servers. Something with timezone for sure
+        @redemtion_expiration = @voucher.redeemed.localtime + Voucher::REDEMPTION_PERIOD + 1.hour
         render :good
       else
         render :no_good
@@ -24,7 +25,8 @@ class VouchersController < ApplicationController
   def redeem
     if @voucher.within_redemtion_period?
       @voucher.set_as_redeemed
-      @redemtion_expiration = @voucher.redeemed + Voucher::REDEMPTION_PERIOD + 1.hour
+      # Not sure why the time is 8hrs ahead on Heroku's servers. Something with timezone for sure
+      @redemtion_expiration = @voucher.redeemed.localtime + Voucher::REDEMPTION_PERIOD + 1.hour
       render :good
     else
       render :no_good

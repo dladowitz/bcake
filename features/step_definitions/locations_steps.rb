@@ -10,7 +10,7 @@ end
 Then  /they can view a single location/ do
   click_link "Jackson Place Cafe"
   expect(page).to have_content "Jackson Place Cafe"
-  expect(page).to have_content "free panini"
+  expect(page).to have_content "Free Panini"
 end
 
 Then  /they can create a new location/ do
