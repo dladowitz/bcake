@@ -9,6 +9,7 @@
 #  redeemed    :datetime
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  sent        :boolean
 #
 
 class Voucher < ActiveRecord::Base

@@ -24,6 +24,7 @@ class Customer < ActiveRecord::Base
       self.locations << location
       # TODO send asyncronously
       CustomerMailer.location_signup_email(self, location).deliver_now
+      Voucher.create(customer_id: self.id, location_id: location.id)
       return locations
     end
   end
