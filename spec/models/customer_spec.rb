@@ -32,6 +32,11 @@ describe Customer do
       it "returns true" do
         expect(subject).to eq customer.locations
       end
+
+      skip "it creates a voucher for the customer" do
+        subject
+        expect(customer.vouchers).to eq 1
+      end
     end
 
     context "when the customer has already signed up for the location" do
