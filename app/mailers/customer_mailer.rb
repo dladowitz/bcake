@@ -8,7 +8,7 @@ class CustomerMailer < ApplicationMailer
 
     # attachments.inline['logo.png'] = File.read('app/assets/images/cake-logo.png')
 
-    mail(to: @customer.email, subject: "Thanks from #{@location.name}")
+    mail(to: @customer.email, from: "\"#{@location.name}\" <admin@bcake.co>", subject: "Thanks from #{@location.name}")
   end
 
   def contact_email(form_options)

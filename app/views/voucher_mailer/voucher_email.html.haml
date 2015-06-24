@@ -21,6 +21,7 @@
                   %td.content-block
                     .fsize-25.mt20
                       This month's treat:
+                      -# TODO this breaks if locations don't have a deal. Should figure that shit out
                     .fsize-25.fweight-700
                       - if @is_birthday
                         = @voucher.location.deal.birthday_deal.capitalize
