@@ -29,7 +29,6 @@ class LocationsController < ApplicationController
     end
   end
 
-
   # This method, It's getting, it's getting, it's getting kinda hectic: https://www.youtube.com/watch?v=Teet_dRa3Bg
   def signup
     # TODO create a method to intelligently pull nearby locations
@@ -38,13 +37,7 @@ class LocationsController < ApplicationController
 
     # if customer is already in db find them, otherwise create a new record
     @customer  = Customer.find_or_create_by(email: params[:customer][:email]) do |customer|
-      # Validating the birthday. Probably a better way to do this. But need a way to not crash. Uses model validation currently.
-      begin
-        customer.birthday = Date.strptime(params[:customer][:birthday], '%m-%d-%Y') #converts month/day/year to day/month/year
-      rescue ArgumentError => e
-        # Should surface invalid date to the view somehow
-        # raise e
-      end
+      customer.birthday = params[:customer][:birthday]
     end
 
     if @customer.save

@@ -21,7 +21,7 @@
 
         .signup-form
           = simple_form_for @customer, url: signup_location_path do |f|
-            = f.input :birthday, label: "Birthday", as: :string, start_year: Time.now.year - 90, end_year: Time.now.year - 8, order: [:month, :day, :year], placeholder: "01-25-1990"
+            = f.input :birthday, collection: {January: "01-01-1900", February: "01-02-1900", March: "01-03-1900", April: "01-04-1900", May: "01-05-1900", June: "01-06-1900", July: "01-07-1900", August: "01-08-1900", September: "01-09-1900", October: "01-10-1900", November: "01-011-1900", December: "01-12-1900"} , selected: "June"
             = f.input :email, placeholder: "tony.start@gmail.com"
             = f.submit value: "Sign Up", class: "btn btn-success sign-up"
 

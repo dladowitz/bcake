@@ -101,7 +101,7 @@ describe LocationsController do
 
   describe 'POST signup' do
     let (:location) { create :location, name: "tradecraft" }
-    subject { post :signup, {id: location.id, customer: { email: "janardin@tradecraft.com", birthday: "11-07-80"}}}
+    subject { post :signup, {id: location.id, customer: { email: "janardin@tradecraft.com", birthday: "11-07-1980"}}}
 
     context "when there are no customers with the email address already" do
       it "creates a new customer in the database" do
@@ -130,7 +130,7 @@ describe LocationsController do
       end
 
       context "when the customer HAS already signed up for the location" do
-        before { post :signup, {id: location.id, customer: { email: "janardin@tradecraft.com", birthday: "11-07-80"}}}
+        before { post :signup, {id: location.id, customer: { email: "janardin@tradecraft.com", birthday: "11-07-1980"}}}
 
         it "does not add the location to the customer" do
           expect(assigns(:customer).locations.count).to eq 1
