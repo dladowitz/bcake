@@ -17,7 +17,7 @@
 
 //////// Add-on styles for the customer page \\\\\\\\\\
 
-// phones
+////// phones
 @media only screen
   and (min-device-width: 100px)
   and (max-device-width: 736px) {
@@ -46,6 +46,10 @@
     h2 {
       font-size: 50px;
     }
+
+    .on-birthday {
+      font-size: 70px;
+    }
   }
 
   ul.locations {
@@ -58,14 +62,7 @@
     a {
       color: blue;
     }
-  }
 
-  // landing page
-  .view-locations {
-    width: 500px;
-    font-size: 55px !important;
-    margin: 50px;
-    padding: 30px !important;
   }
 
   // location page
@@ -73,6 +70,8 @@
     margin: auto;
     margin-top: 90px;
     font-size: 50px;
+
+
 
     input {
       height: 100px;
@@ -195,10 +194,11 @@
   }
 }
 
+
+////// laptops/monitors
 @media only screen
   and (min-device-width: 737px) {
 
-  // laptops/monitors
   .img-layer {
     height: 1000px;
     background-size: cover !important;
@@ -211,17 +211,21 @@
     text-align: center;
     padding: 40px;
     position: relative;
-    top: 100px;
+    top: 50px;
   }
   .main_content {
     color: #312212;
 
     h1 {
-      font-size: 100px;
+      font-size: 50px;
     }
 
     h2 {
       font-size: 50px;
+    }
+
+    .on-birthday {
+      font-size: 40px;
     }
   }
 
@@ -231,42 +235,34 @@
 
   li.location {
     list-style-type: none;
-    font-size: 45px;
+    font-size: 25px;
     a {
       color: blue;
     }
   }
 
-  // landing page
-  .view-locations {
-    width: 500px;
-    font-size: 55px !important;
-    margin: 50px;
-    padding: 30px !important;
-  }
-
   // location page
   .signup-form {
     margin: auto;
-    margin-top: 90px;
-    font-size: 50px;
+    margin-top: 25px;
+    font-size: 25px;
 
     input {
-      height: 100px;
-      font-size: 50px;
-      line-height: 80px !important;
-      margin: 10px auto 50px auto;
+      height: 50px;
+      font-size: 25px;
+      line-height: 40px !important;
+      margin: 0 auto 50px auto;
       padding-left: 20px;
-      width: 700px;
+      width: 400px;
     }
 
     select {
-      height: 100px;
-      font-size: 50px;
-      line-height: 80px !important;
-      margin: 10px auto 50px auto;
+      height: 50px;
+      font-size: 25px;
+      line-height: 50px !important;
+      margin: 0 auto 50px auto;
       padding-left: 20px;
-      width: 700px;
+      width: 400px;
       padding-left: 10px;
     }
 
@@ -275,12 +271,12 @@
     }
 
     .sign-up {
-      width: 700px;
+      width: 400px;
     }
   }
 
   .subheading {
-    font-size: 50px
+    font-size: 30px
   }
 
   // vouchers/show page
