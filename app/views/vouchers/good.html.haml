@@ -1,22 +1,22 @@
-.container.img-layer.col-xs-12{:style => "background: url(https://farm9.staticflickr.com/8439/8000334787_92911a641e_c.jpg); background-size: cover;"}
+.container.img-layer.col-xs-12.good-image
   .row
     .opaque-layer.col-xs-12.col-md-8.col-md-offset-2
       .main_content.col-xs-10.col-xs-offset-1
         - if @voucher.customer.birthday.month == Date.today.month
-          %p.fsize-70
+          %p.happy-birthday
             HAPPY BIRTHDAY!
-          %p.fsize-70
+          %p.happy-birthday
             The treat is all yours
         - else
-          %p.fsize-70
+          %p.happy-birthday
             The treat is all yours
 
-        %p.fsize-50.mt50 Show this at the register
+        %p.register.mt50 Show this at the register
 
-        %p.fsize-70
+        %p.happy-birthday
           - if @voucher.customer.birthday.month == Date.today.month
             %span.green= @voucher.location.deal.birthday_deal
           -else
             %span.green= @voucher.location.deal.monthly_deal
         %h4.mt50= @voucher.token
-        %h2.green= "Good until #{@redemtion_expiration.strftime("%b %e - %l%P")}"
+        .good-till.green= "Good until #{@redemtion_expiration.strftime("%b %e - %l%P")}"

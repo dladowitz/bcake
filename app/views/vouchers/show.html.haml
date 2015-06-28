@@ -1,20 +1,20 @@
-.container.img-layer.col-xs-12{:style => "background: url(https://farm1.staticflickr.com/138/319913793_71cec49d33_z.jpg); background-size: cover;"}
+.container.img-layer.col-xs-12.voucher-image
   .row
     .opaque-layer.col-xs-12.col-md-8.col-md-offset-2
       .main_content.col-xs-10.col-xs-offset-1
-        .fsize-60
+        .location-name
           Your treat from
           %br
           = @voucher.location.name
         %p.mt40
           - if @voucher.customer.birthday.month == Date.today.month
-            %p.fsize-100.green= @voucher.location.deal.birthday_deal # law of demeter violation. Fix.
+            %p.deal.green= @voucher.location.deal.birthday_deal # law of demeter violation. Fix.
           - else
-            %p.fsize-100.green= @voucher.location.deal.monthly_deal # law of demeter violation. Fix.
+            %p.deal.green= @voucher.location.deal.monthly_deal # law of demeter violation. Fix.
 
-        %p.fsize-50.mt50
+        %p.mt50.expire
           = "Treat is good for #{Voucher::REDEMPTION_PERIOD / 3600} hours after pressing the redeem button"
 
         %p.mt50
           = form_tag redeem_voucher_path(@voucher.token) do
-            = submit_tag "Redeem Now", class: "fsize-50 btn btn-lg btn-success"
+            = submit_tag "Redeem Now", class: "redemtion-button btn btn-lg btn-success"

@@ -24,8 +24,8 @@
 
   .img-layer {
     height: 1800px;
+    background-size: cover !important;
   }
-
 
   .opaque-layer {
     background-color: rgba(225, 225, 225, .75);
@@ -104,6 +104,230 @@
 
   .subheading {
     font-size: 50px
+  }
+
+  // vouchers/show page
+  .voucher-image {
+    background: url(https://farm1.staticflickr.com/138/319913793_71cec49d33_z.jpg);
+  }
+
+  .location-name {
+    font-size: 60px;
+  }
+
+  .deal {
+    font-size: 100px;
+  }
+
+  .expire {
+    font-size: 50px;
+  }
+
+  .redemtion-button {
+    font-size: 50px !important;
+  }
+
+  .good-till {
+    font-size: 50px;
+  }
+
+  // vouchers/good page
+  .good-image {
+    background: url(https://farm9.staticflickr.com/8439/8000334787_92911a641e_c.jpg);
+  }
+
+  .happy-birthday {
+    font-size: 70px;
+  }
+
+  .register {
+    font-size: 50px;
+  }
+
+  // vouchers/no_good page
+  .sorry {
+    font-size: 70px;
+  }
+
+  .redeemed-on {
+    font-size: 50px;
+  }
+
+  .dont-worry {
+    font-size: 50px;
+  }
+
+
+  // signup_confirmation page
+  .opaque-layer-confirmation {
+    background-color: rgba(225, 225, 225, .65);
+    border-radius: 5px;
+    margin-top: 50px;
+    min-height: 300px !important;
+    text-align: center;
+    padding: 40px;
+  }
+
+  .thanks {
+    font-size: 65px;
+  }
+
+  .other-locations {
+    font-size: 40px;
+  }
+
+  .business {
+    height: 300px;
+    border-top: 10px solid green;
+
+    .name {
+      color: white;
+      font-size: 100px;
+    }
+    .distance {
+      font-size: 60px;
+    }
+  }
+
+  .backing-layer {
+    padding: 30px;
+    background: rgba(0, 0, 0, .75)
+  }
+}
+
+@media only screen
+  and (min-device-width: 737px) {
+
+  // laptops/monitors
+  .img-layer {
+    height: 1000px;
+    background-size: cover !important;
+  }
+
+  .opaque-layer {
+    background-color: rgba(225, 225, 225, .85);
+    border-radius: 5px;
+    min-height: 300px !important;
+    text-align: center;
+    padding: 40px;
+    position: relative;
+    top: 100px;
+  }
+  .main_content {
+    color: #312212;
+
+    h1 {
+      font-size: 100px;
+    }
+
+    h2 {
+      font-size: 50px;
+    }
+  }
+
+  ul.locations {
+    padding-left: 0px;
+  }
+
+  li.location {
+    list-style-type: none;
+    font-size: 45px;
+    a {
+      color: blue;
+    }
+  }
+
+  // landing page
+  .view-locations {
+    width: 500px;
+    font-size: 55px !important;
+    margin: 50px;
+    padding: 30px !important;
+  }
+
+  // location page
+  .signup-form {
+    margin: auto;
+    margin-top: 90px;
+    font-size: 50px;
+
+    input {
+      height: 100px;
+      font-size: 50px;
+      line-height: 80px !important;
+      margin: 10px auto 50px auto;
+      padding-left: 20px;
+      width: 700px;
+    }
+
+    select {
+      height: 100px;
+      font-size: 50px;
+      line-height: 80px !important;
+      margin: 10px auto 50px auto;
+      padding-left: 20px;
+      width: 700px;
+      padding-left: 10px;
+    }
+
+    .birthday {
+      // width: 100%;
+    }
+
+    .sign-up {
+      width: 700px;
+    }
+  }
+
+  .subheading {
+    font-size: 50px
+  }
+
+  // vouchers/show page
+  .voucher-image {
+    background: url(https://farm8.staticflickr.com/7540/16261093986_886ba73384_b.jpg);
+  }
+
+  .location-name {
+    font-size: 40px;
+  }
+
+  .deal {
+    font-size: 50px;
+  }
+
+  .expire {
+    font-size: 30px;
+  }
+
+  // vouchers/good page
+  .good-image {
+    background: url(https://farm9.staticflickr.com/8275/8747148779_4f13db9e05_b.jpg);
+  }
+
+  .happy-birthday {
+    font-size: 50px;
+  }
+
+  .register {
+    font-size: 30px;
+  }
+
+  .good-till {
+    font-size: 30px;
+  }
+
+  // vouchers/no_good page
+  .sorry {
+    font-size: 40px;
+  }
+
+  .redeemed-on {
+    font-size: 30px;
+  }
+
+  .dont-worry {
+    font-size: 20px;
   }
 
   // signup_confirmation page
