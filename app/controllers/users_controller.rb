@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
       #TODO Mailer should be sent asyncronously. Need to change so not to hold up the controller
       UserMailer.signup_email(@user).deliver_now
+      UserMailer.new_user_notice_email(@user).deliver_now
 
       session[:id] = @user.id
       redirect_to user_path(@user)
