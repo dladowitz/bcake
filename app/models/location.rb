@@ -19,6 +19,7 @@
 class Location < ActiveRecord::Base
   validates :name, presence: true
 
+  # This should really be a has_many :through
   has_and_belongs_to_many :customers
   belongs_to :user
   has_many :vouchers
@@ -26,4 +27,8 @@ class Location < ActiveRecord::Base
   #currently locations only have one deal.
   #This may need to change to has_many. Otherwise when a deal changes a user will get the new deal instead of the one emailed to them.
   has_one :deal
+
+  def customer_signups_in_past(time_frame = 10.years )
+    CustomersLocation.where("created_at > ? AND location_id = ?", time_frame.ago, self.id).count
+  end
 end

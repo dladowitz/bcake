@@ -31,19 +31,19 @@
             %i.fa.fa-envelope
           .row
             .col-xs-9
-              %h3.ml20 This Week
+              %h3.ml20 Past 7 Days
             .col-xs-3.text-right
-              %h2.font-bold 25
+              %h2.font-bold= @location.customer_signups_in_past(7.day)
           .row
             .col-xs-9
-              %h3.ml20 This Month
+              %h3.ml20 Past 30 Days
             .col-xs-3.text-right
-              %h2.font-bold 103
+              %h2.font-bold= @location.customer_signups_in_past(30.day)
           .row
             .col-xs-9
               %h3.ml20 All Time
             .col-xs-3.text-right
-              %h2.font-bold 378
+              %h2.font-bold= @location.customer_signups_in_past()
   .row
     .col-sm-5
       .widget.yellow-bg.no-padding
