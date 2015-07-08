@@ -32,6 +32,7 @@ class Location < ActiveRecord::Base
     CustomersLocation.where("created_at > ? AND location_id = ?", time_frame.ago, self.id).count
   end
 
+  # TODO add tests for this method
   def deals_redeemed_in_past(time_frame = 10.years)
     self.vouchers.where("redeemed > ?", time_frame.ago).count
   end
