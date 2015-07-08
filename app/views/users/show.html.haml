@@ -9,19 +9,19 @@
             %i.fa.fa-birthday-cake
           .row
             .col-xs-9
-              %h3.ml20 This Week
+              %h3.ml20 Past 7 Days
             .col-xs-3.text-right
-              %h2.font-bold 11
+              %h2.font-bold= @location ? @location.deals_redeemed_in_past(7.days) : 0
           .row
             .col-xs-9
-              %h3.ml20 This Month
+              %h3.ml20 Past 30 Days
             .col-xs-3.text-right
-              %h2.font-bold 51
+              %h2.font-bold= @location ? @location.deals_redeemed_in_past(30.days) : 0
           .row
             .col-xs-9
               %h3.ml20 All Time
             .col-xs-3.text-right
-              %h2.font-bold 201
+              %h2.font-bold= @location ? @location.deals_redeemed_in_past() : 0
 
     .col-sm-5
       .widget.blue-bg.no-padding
@@ -33,17 +33,17 @@
             .col-xs-9
               %h3.ml20 Past 7 Days
             .col-xs-3.text-right
-              %h2.font-bold= @location.customer_signups_in_past(7.day)
+              %h2.font-bold= @location ? @location.customer_signups_in_past(7.days) : 0
           .row
             .col-xs-9
               %h3.ml20 Past 30 Days
             .col-xs-3.text-right
-              %h2.font-bold= @location.customer_signups_in_past(30.day)
+              %h2.font-bold= @location ? @location.customer_signups_in_past(30.days) : 0
           .row
             .col-xs-9
               %h3.ml20 All Time
             .col-xs-3.text-right
-              %h2.font-bold= @location.customer_signups_in_past()
+              %h2.font-bold= @location ? @location.customer_signups_in_past() : 0
   .row
     .col-sm-5
       .widget.yellow-bg.no-padding

@@ -13,7 +13,7 @@ describe Location do
     expect(location.name).to eq "Cafe Flora"
   end
 
-  describe "#customer_signups" do
+  describe "#customer_signups_in_past" do
     include ActiveSupport::Testing::TimeHelpers
     location = create :location
     customer1 = create :customer
@@ -28,11 +28,11 @@ describe Location do
     end
 
     it "correctly counts the number of customers signed up in the time period " do
-      expect(location.customer_signups(7.days.ago)).to eq 1
+      expect(location.customer_signups_in_past(7.days)).to eq 1
     end
 
     it "correctly counts the number of customers signed up in the time period " do
-      expect(location.customer_signups(30.days.ago)).to eq 2
+      expect(location.customer_signups_in_past(30.days)).to eq 2
     end
   end
 end
