@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe Location do
   it { should validate_presence_of :name }
-  it { should have_and_belong_to_many :customers }
+  it { should have_many(:customers).through(:customer_signups) }
+  it { should have_many :customer_signups }
   it { should belong_to :user }
   it { should have_one :deal }
   it { should have_many :vouchers }

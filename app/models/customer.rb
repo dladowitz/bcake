@@ -14,7 +14,8 @@ class Customer < ActiveRecord::Base
   validates :email, presence: true
   validates_presence_of :birthday, :message => "is invalid"
 
-  has_and_belongs_to_many :locations
+  has_many :locations, through: :customer_signups
+  has_many :customer_signups
   has_many :vouchers
 
   def add_location(location)

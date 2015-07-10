@@ -3,7 +3,8 @@ require 'rails_helper'
 describe Customer do
   # it { should validate_presence_of :birthday } # Doesn't work because we changed the validation message.
   it { should validate_presence_of :email }
-  it { should have_and_belong_to_many :locations }
+  it { should have_many(:locations).through(:customer_signups) }
+  it { should have_many :customer_signups }
   it { should have_many :vouchers }
 
   it "has a valid factory" do

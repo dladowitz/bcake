@@ -20,7 +20,8 @@ class Location < ActiveRecord::Base
   validates :name, presence: true
 
   # This should really be a has_many :through
-  has_and_belongs_to_many :customers
+  has_many :customers, through: :customer_signups
+  has_many :customer_signups
   belongs_to :user
   has_many :vouchers
 
@@ -29,7 +30,7 @@ class Location < ActiveRecord::Base
   has_one :deal
 
   def customer_signups_in_past(time_frame = 10.years)
-    CustomersLocation.where("created_at > ? AND location_id = ?", time_frame.ago, self.id).count
+    CustomerSignup.where("created_at > ? AND location_id = ?", time_frame.ago, self.id).count
   end
 
   # TODO add tests for this method
